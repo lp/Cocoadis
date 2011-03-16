@@ -1,0 +1,485 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0C201D6E132A8EA8008E77D7 /* Cocoadis.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* Cocoadis.framework */; };
+		0C201D86132AA411008E77D7 /* Cocoadis_02_Test_Persist.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C201D85132AA411008E77D7 /* Cocoadis_02_Test_Persist.m */; };
+		0C201F99132D1895008E77D7 /* NSMutableArray+Cocoadis.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C201F97132D1895008E77D7 /* NSMutableArray+Cocoadis.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		0C201F9A132D1895008E77D7 /* NSMutableArray+Cocoadis.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C201F98132D1895008E77D7 /* NSMutableArray+Cocoadis.m */; };
+		0C2021111330120A008E77D7 /* NSMutableDictionary+Cocoadis.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C20210F1330120A008E77D7 /* NSMutableDictionary+Cocoadis.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		0C2021121330120A008E77D7 /* NSMutableDictionary+Cocoadis.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C2021101330120A008E77D7 /* NSMutableDictionary+Cocoadis.m */; };
+		0C20216E13310B45008E77D7 /* NSMutableString+Cocoadis.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C20216C13310B45008E77D7 /* NSMutableString+Cocoadis.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		0C20216F13310B45008E77D7 /* NSMutableString+Cocoadis.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C20216D13310B45008E77D7 /* NSMutableString+Cocoadis.m */; };
+		0C2021F9133144AE008E77D7 /* NSMutableSet+Cocoadis.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C2021F7133144AE008E77D7 /* NSMutableSet+Cocoadis.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		0C2021FA133144AE008E77D7 /* NSMutableSet+Cocoadis.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C2021F8133144AE008E77D7 /* NSMutableSet+Cocoadis.m */; };
+		0C8BD865132A81A300430BD0 /* Cocoadis.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C8BD863132A81A300430BD0 /* Cocoadis.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0C8BD866132A81A300430BD0 /* Cocoadis.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C8BD864132A81A300430BD0 /* Cocoadis.m */; };
+		0C8BD882132A829A00430BD0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0867D69BFE84028FC02AAC07 /* Foundation.framework */; };
+		0C8BD923132A87B000430BD0 /* Cocoadis_01_Basic_TestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C8BD922132A87B000430BD0 /* Cocoadis_01_Basic_TestCase.m */; };
+		0C8BD958132A8D9400430BD0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0867D69BFE84028FC02AAC07 /* Foundation.framework */; };
+		8DC2EF530486A6940098B216 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C1666FE841158C02AAC07 /* InfoPlist.strings */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0C8BD936132A8A7800430BD0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
+			remoteInfo = Cocoadis;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0867D69BFE84028FC02AAC07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		089C1667FE841158C02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		0C201D85132AA411008E77D7 /* Cocoadis_02_Test_Persist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cocoadis_02_Test_Persist.m; sourceTree = "<group>"; };
+		0C201F97132D1895008E77D7 /* NSMutableArray+Cocoadis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+Cocoadis.h"; sourceTree = "<group>"; };
+		0C201F98132D1895008E77D7 /* NSMutableArray+Cocoadis.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Cocoadis.m"; sourceTree = "<group>"; };
+		0C20210F1330120A008E77D7 /* NSMutableDictionary+Cocoadis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+Cocoadis.h"; sourceTree = "<group>"; };
+		0C2021101330120A008E77D7 /* NSMutableDictionary+Cocoadis.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+Cocoadis.m"; sourceTree = "<group>"; };
+		0C20216C13310B45008E77D7 /* NSMutableString+Cocoadis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableString+Cocoadis.h"; sourceTree = "<group>"; };
+		0C20216D13310B45008E77D7 /* NSMutableString+Cocoadis.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableString+Cocoadis.m"; sourceTree = "<group>"; };
+		0C2021F7133144AE008E77D7 /* NSMutableSet+Cocoadis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableSet+Cocoadis.h"; sourceTree = "<group>"; };
+		0C2021F8133144AE008E77D7 /* NSMutableSet+Cocoadis.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableSet+Cocoadis.m"; sourceTree = "<group>"; };
+		0C8BD863132A81A300430BD0 /* Cocoadis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cocoadis.h; sourceTree = "<group>"; };
+		0C8BD864132A81A300430BD0 /* Cocoadis.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cocoadis.m; sourceTree = "<group>"; };
+		0C8BD915132A871E00430BD0 /* Test_Cocoadis_OSX.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Test_Cocoadis_OSX.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0C8BD916132A871E00430BD0 /* Test_Cocoadis_OSX-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Test_Cocoadis_OSX-Info.plist"; sourceTree = "<group>"; };
+		0C8BD922132A87B000430BD0 /* Cocoadis_01_Basic_TestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cocoadis_01_Basic_TestCase.m; sourceTree = "<group>"; };
+		32DBCF5E0370ADEE00C91783 /* Cocoadis_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cocoadis_Prefix.pch; sourceTree = "<group>"; };
+		8DC2EF5A0486A6940098B216 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8DC2EF5B0486A6940098B216 /* Cocoadis.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Cocoadis.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0C8BD912132A871E00430BD0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0C8BD958132A8D9400430BD0 /* Foundation.framework in Frameworks */,
+				0C201D6E132A8EA8008E77D7 /* Cocoadis.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8DC2EF560486A6940098B216 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0C8BD882132A829A00430BD0 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		034768DFFF38A50411DB9C8B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8DC2EF5B0486A6940098B216 /* Cocoadis.framework */,
+				0C8BD915132A871E00430BD0 /* Test_Cocoadis_OSX.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0867D691FE84028FC02AAC07 /* Cocoadis */ = {
+			isa = PBXGroup;
+			children = (
+				0C8BD91C132A875A00430BD0 /* TestCases */,
+				08FB77AEFE84172EC02AAC07 /* Classes */,
+				32C88DFF0371C24200C91783 /* Other Sources */,
+				089C1665FE841158C02AAC07 /* Resources */,
+				0867D69AFE84028FC02AAC07 /* External Frameworks and Libraries */,
+				034768DFFF38A50411DB9C8B /* Products */,
+				0C8BD916132A871E00430BD0 /* Test_Cocoadis_OSX-Info.plist */,
+			);
+			name = Cocoadis;
+			sourceTree = "<group>";
+		};
+		0867D69AFE84028FC02AAC07 /* External Frameworks and Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7B0FEA5585E11CA2CBB /* Linked Frameworks */,
+				1058C7B2FEA5585E11CA2CBB /* Other Frameworks */,
+			);
+			name = "External Frameworks and Libraries";
+			sourceTree = "<group>";
+		};
+		089C1665FE841158C02AAC07 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8DC2EF5A0486A6940098B216 /* Info.plist */,
+				089C1666FE841158C02AAC07 /* InfoPlist.strings */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		08FB77AEFE84172EC02AAC07 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				0C8BD863132A81A300430BD0 /* Cocoadis.h */,
+				0C8BD864132A81A300430BD0 /* Cocoadis.m */,
+				0C201F97132D1895008E77D7 /* NSMutableArray+Cocoadis.h */,
+				0C201F98132D1895008E77D7 /* NSMutableArray+Cocoadis.m */,
+				0C20210F1330120A008E77D7 /* NSMutableDictionary+Cocoadis.h */,
+				0C2021101330120A008E77D7 /* NSMutableDictionary+Cocoadis.m */,
+				0C20216C13310B45008E77D7 /* NSMutableString+Cocoadis.h */,
+				0C20216D13310B45008E77D7 /* NSMutableString+Cocoadis.m */,
+				0C2021F7133144AE008E77D7 /* NSMutableSet+Cocoadis.h */,
+				0C2021F8133144AE008E77D7 /* NSMutableSet+Cocoadis.m */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		0C8BD91C132A875A00430BD0 /* TestCases */ = {
+			isa = PBXGroup;
+			children = (
+				0C8BD922132A87B000430BD0 /* Cocoadis_01_Basic_TestCase.m */,
+				0C201D85132AA411008E77D7 /* Cocoadis_02_Test_Persist.m */,
+			);
+			name = TestCases;
+			sourceTree = "<group>";
+		};
+		1058C7B0FEA5585E11CA2CBB /* Linked Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Linked Frameworks";
+			sourceTree = "<group>";
+		};
+		1058C7B2FEA5585E11CA2CBB /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0867D69BFE84028FC02AAC07 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		32C88DFF0371C24200C91783 /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				32DBCF5E0370ADEE00C91783 /* Cocoadis_Prefix.pch */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		8DC2EF500486A6940098B216 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0C8BD865132A81A300430BD0 /* Cocoadis.h in Headers */,
+				0C201F99132D1895008E77D7 /* NSMutableArray+Cocoadis.h in Headers */,
+				0C2021111330120A008E77D7 /* NSMutableDictionary+Cocoadis.h in Headers */,
+				0C20216E13310B45008E77D7 /* NSMutableString+Cocoadis.h in Headers */,
+				0C2021F9133144AE008E77D7 /* NSMutableSet+Cocoadis.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		0C8BD914132A871E00430BD0 /* Test_Cocoadis_OSX */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0C8BD919132A871E00430BD0 /* Build configuration list for PBXNativeTarget "Test_Cocoadis_OSX" */;
+			buildPhases = (
+				0C8BD910132A871E00430BD0 /* Resources */,
+				0C8BD911132A871E00430BD0 /* Sources */,
+				0C8BD912132A871E00430BD0 /* Frameworks */,
+				0C8BD913132A871E00430BD0 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0C8BD937132A8A7800430BD0 /* PBXTargetDependency */,
+			);
+			name = Test_Cocoadis_OSX;
+			productName = Test_Cocoadis_OSX;
+			productReference = 0C8BD915132A871E00430BD0 /* Test_Cocoadis_OSX.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+		8DC2EF4F0486A6940098B216 /* Cocoadis */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1DEB91AD08733DA50010E9CD /* Build configuration list for PBXNativeTarget "Cocoadis" */;
+			buildPhases = (
+				8DC2EF500486A6940098B216 /* Headers */,
+				8DC2EF520486A6940098B216 /* Resources */,
+				8DC2EF540486A6940098B216 /* Sources */,
+				8DC2EF560486A6940098B216 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Cocoadis;
+			productInstallPath = "$(HOME)/Library/Frameworks";
+			productName = Cocoadis;
+			productReference = 8DC2EF5B0486A6940098B216 /* Cocoadis.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0867D690FE84028FC02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 1DEB91B108733DA50010E9CD /* Build configuration list for PBXProject "Cocoadis" */;
+			compatibilityVersion = "Xcode 3.1";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
+			mainGroup = 0867D691FE84028FC02AAC07 /* Cocoadis */;
+			productRefGroup = 034768DFFF38A50411DB9C8B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8DC2EF4F0486A6940098B216 /* Cocoadis */,
+				0C8BD914132A871E00430BD0 /* Test_Cocoadis_OSX */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0C8BD910132A871E00430BD0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8DC2EF520486A6940098B216 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8DC2EF530486A6940098B216 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0C8BD913132A871E00430BD0 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0C8BD911132A871E00430BD0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0C8BD923132A87B000430BD0 /* Cocoadis_01_Basic_TestCase.m in Sources */,
+				0C201D86132AA411008E77D7 /* Cocoadis_02_Test_Persist.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8DC2EF540486A6940098B216 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0C8BD866132A81A300430BD0 /* Cocoadis.m in Sources */,
+				0C201F9A132D1895008E77D7 /* NSMutableArray+Cocoadis.m in Sources */,
+				0C2021121330120A008E77D7 /* NSMutableDictionary+Cocoadis.m in Sources */,
+				0C20216F13310B45008E77D7 /* NSMutableString+Cocoadis.m in Sources */,
+				0C2021FA133144AE008E77D7 /* NSMutableSet+Cocoadis.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0C8BD937132A8A7800430BD0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8DC2EF4F0486A6940098B216 /* Cocoadis */;
+			targetProxy = 0C8BD936132A8A7800430BD0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		089C1666FE841158C02AAC07 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				089C1667FE841158C02AAC07 /* English */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		0C8BD917132A871E00430BD0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Cocoa.framework/Headers/Cocoa.h";
+				INFOPLIST_FILE = "Test_Cocoadis_OSX-Info.plist";
+				INSTALL_PATH = "$(USER_LIBRARY_DIR)/Bundles";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Cocoa,
+					"-framework",
+					SenTestingKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = Test_Cocoadis_OSX;
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		0C8BD918132A871E00430BD0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Cocoa.framework/Headers/Cocoa.h";
+				INFOPLIST_FILE = "Test_Cocoadis_OSX-Info.plist";
+				INSTALL_PATH = "$(USER_LIBRARY_DIR)/Bundles";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Cocoa,
+					"-framework",
+					SenTestingKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = Test_Cocoadis_OSX;
+				WRAPPER_EXTENSION = octest;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		1DEB91AE08733DA50010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_ENABLE_OBJC_GC = supported;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Cocoadis_Prefix.pch;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Library/Frameworks";
+				PRODUCT_NAME = Cocoadis;
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Debug;
+		};
+		1DEB91AF08733DA50010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_ENABLE_OBJC_GC = supported;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Cocoadis_Prefix.pch;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Library/Frameworks";
+				PRODUCT_NAME = Cocoadis;
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Release;
+		};
+		1DEB91B208733DA50010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx10.6;
+			};
+			name = Debug;
+		};
+		1DEB91B308733DA50010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx10.6;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0C8BD919132A871E00430BD0 /* Build configuration list for PBXNativeTarget "Test_Cocoadis_OSX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0C8BD917132A871E00430BD0 /* Debug */,
+				0C8BD918132A871E00430BD0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1DEB91AD08733DA50010E9CD /* Build configuration list for PBXNativeTarget "Cocoadis" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB91AE08733DA50010E9CD /* Debug */,
+				1DEB91AF08733DA50010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1DEB91B108733DA50010E9CD /* Build configuration list for PBXProject "Cocoadis" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB91B208733DA50010E9CD /* Debug */,
+				1DEB91B308733DA50010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0867D690FE84028FC02AAC07 /* Project object */;
+}
