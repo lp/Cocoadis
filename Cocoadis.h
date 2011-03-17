@@ -38,6 +38,7 @@
 }
 
 @property(retain, readwrite) NSString * basePath;
+@property(retain, readonly) NSMutableDictionary * dbCache;
 
 + (id)persistence;
 
@@ -45,7 +46,7 @@
 - (id)persist:(id)obj key:(NSString*)key;
 - (void)saveAll;
 - (void)flushCache;
-
+- (void)cleanCache;
 - (void)clearPersistence;
 
 @end

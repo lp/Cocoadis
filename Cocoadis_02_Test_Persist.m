@@ -49,6 +49,7 @@
 }
 
 - (void)tearDown {
+	[[Cocoadis persistence] flushCache];
 	[[Cocoadis persistence] clearPersistence];
 }
 
@@ -140,17 +141,68 @@
 	id mSet = [[NSMutableSet alloc] initWithPersistence:@"mSet"];
 	[mSet addObject:@"a"];
 	STAssertTrue([[mSet member:@"a"] isEqualToString:@"a"], @"is not a set");
-	
+		
 	id mSet2 = [[NSMutableSet alloc] initWithPersistence:@"mSet"];
 	STAssertNotNil(mSet2, @"set: returned nil");
 	STAssertTrue([[mSet2 member:@"a"] isEqualToString:@"a"], @"is not a set");
-	
+		
 	[[Cocoadis persistence] saveAll];
 	[[Cocoadis persistence] flushCache];
 	
 	id mSet3 = [[NSMutableSet alloc] initWithPersistence:@"mSet"];
 	STAssertNotNil(mSet3, @"set: returned nil");
 	STAssertTrue([[mSet2 member:@"a"] isEqualToString:@"a"], @"is not a set");
+		
+	[mSet release];
+	[mSet2 release];
+	[mSet3 release];
+}
+
+- (void)test_08_cleanCache {
+	STAssertTrue([[[Cocoadis persistence] dbCache] count] == 0, @"the db cache doesn't start clean");
+	
+	id mArray = [[NSMutableArray alloc] initWithPersistence:@"mArray"];
+	id mDict = [[NSMutableDictionary alloc] initWithPersistence:@"mDict"];
+	id mString = [[NSMutableString alloc] initWithPersistence:@"mString"];
+	id mSet = [[NSMutableSet alloc] initWithPersistence:@"mSet"];
+		
+	STAssertTrue([[[Cocoadis persistence] dbCache] count] == 4, @"the db cache didn't keep the objects");
+	
+	[mArray release];
+	[[Cocoadis persistence] cleanCache];
+	STAssertTrue([[[Cocoadis persistence] dbCache] count] == 3,
+				 @"the db cache didn't clean the objects, count should be 3, it is %d",
+				 [[[Cocoadis persistence] dbCache] count]);
+	
+	STAssertTrue([[[Cocoadis persistence] dbCache] objectForKey:@"mDict"] &&
+				 [[[Cocoadis persistence] dbCache] objectForKey:@"mString"] &&
+				 [[[Cocoadis persistence] dbCache] objectForKey:@"mSet"],
+				 @"the db cache cleaned the wrong object");
+		
+	[mDict release];
+	[[Cocoadis persistence] cleanCache];
+	STAssertTrue([[[Cocoadis persistence] dbCache] count] == 2,
+				 @"the db cache didn't clean the objects, count should be 2, it is %d",
+				 [[[Cocoadis persistence] dbCache] count]);
+		
+	STAssertTrue([[[Cocoadis persistence] dbCache] objectForKey:@"mString"] &&
+				 [[[Cocoadis persistence] dbCache] objectForKey:@"mSet"],
+				 @"the db cache cleaned the wrong object");
+	
+	[mString release];
+	[[Cocoadis persistence] cleanCache];
+	STAssertTrue([[[Cocoadis persistence] dbCache] count] == 1,
+				 @"the db cache didn't clean the objects, count should be 1, it is %d",
+				 [[[Cocoadis persistence] dbCache] count]);
+			
+	STAssertNotNil([[[Cocoadis persistence] dbCache] objectForKey:@"mSet"],
+				 @"the db cache cleaned the wrong object");
+	
+	[mSet release];
+	[[Cocoadis persistence] cleanCache];
+	STAssertTrue([[[Cocoadis persistence] dbCache] count] == 0,
+				 @"the db cache didn't clean the objects, count should be 0, it is %d",
+				 [[[Cocoadis persistence] dbCache] count]);	
 }
 
 @end

@@ -40,6 +40,7 @@ static Cocoadis * CDISPersistence;
 
 @implementation Cocoadis
 @synthesize basePath;
+@synthesize dbCache;
 
 + (id)persistence
 {
@@ -74,45 +75,55 @@ static Cocoadis * CDISPersistence;
 {
 	id persisted = [dbCache objectForKey:key];
 	if (persisted && [persisted isKindOfClass:[obj class]]) {
-		return persisted;
-	}
-	
-	NSString * filePath = [self filePathWithName:key];
-	if ([fm fileExistsAtPath:filePath]) {
-		NSArray * loadArray = [[NSArray alloc] initWithContentsOfFile:filePath];
-		if (loadArray) {
-			if ([[loadArray objectAtIndex:0] isEqualToString:@"NSCFArray"]) {
-				NSArray * persisted = [[NSArray alloc] initWithArray:[loadArray objectAtIndex:1]];
-				if ([obj isKindOfClass:[persisted class]]) {
-					[obj addObjectsFromArray:persisted];
-				}
-				[persisted release];
-			} else if ([[loadArray objectAtIndex:0] isEqualToString:@"NSCFDictionary"]) {
-				NSDictionary * persisted = [[NSDictionary alloc] initWithDictionary:[loadArray objectAtIndex:1]];
-				if ([obj isKindOfClass:[persisted class]]) {
-					[obj addEntriesFromDictionary:persisted];
-				}
-				[persisted release];
-			} else if ([[loadArray objectAtIndex:0] isEqualToString:@"NSCFString"]) {
-				NSString * persisted = [[NSString alloc] initWithString:[loadArray objectAtIndex:1]];
-				if ([obj isKindOfClass:[persisted class]]) {
-					[obj setString:persisted];
-				}
-				[persisted release];
-			} else if ([[loadArray objectAtIndex:0] isEqualToString:@"NSCFSet"]) {
-				NSSet * persisted = [[NSSet alloc] initWithSet:[loadArray objectAtIndex:1]];
-				if ([obj isKindOfClass:[persisted class]]) {
-					[obj unionSet:persisted];
-				}
-				[persisted release];
-			}
+		if ([obj isKindOfClass:[NSMutableArray class]]) {
+			[obj addObjectsFromArray:persisted];
+		} else if ([obj isKindOfClass:[NSMutableDictionary class]]) {
+			[obj addEntriesFromDictionary:persisted];
+		} else if ([obj isKindOfClass:[NSMutableString class]]) {
+			[obj setString:persisted];
+		} else if ([obj isKindOfClass:[NSMutableSet class]]) {
+			[obj unionSet:persisted];
 		}
-		[loadArray release];
-		
-		// needs to add conditionals for other classes
+	} else {
+		NSString * filePath = [self filePathWithName:key];
+		if ([fm fileExistsAtPath:filePath]) {
+			NSArray * loadArray = [[NSArray alloc] initWithContentsOfFile:filePath];
+			if (loadArray) {
+				if ([[loadArray objectAtIndex:0] isEqualToString:@"NSCFArray"]) {
+					persisted = [[NSArray alloc] initWithArray:[loadArray objectAtIndex:1]];
+					if ([obj isKindOfClass:[persisted class]]) {
+						[obj addObjectsFromArray:persisted];
+					}
+					[persisted release];
+				} else if ([[loadArray objectAtIndex:0] isEqualToString:@"NSCFDictionary"]) {
+					persisted = [[NSDictionary alloc] initWithDictionary:[loadArray objectAtIndex:1]];
+					if ([obj isKindOfClass:[persisted class]]) {
+						[obj addEntriesFromDictionary:persisted];
+					}
+					[persisted release];
+				} else if ([[loadArray objectAtIndex:0] isEqualToString:@"NSCFString"]) {
+					persisted = [[NSString alloc] initWithString:[loadArray objectAtIndex:1]];
+					if ([obj isKindOfClass:[persisted class]]) {
+						[obj setString:persisted];
+					}
+					[persisted release];
+				} else if ([[loadArray objectAtIndex:0] isEqualToString:@"NSCFSet"]) {
+					persisted = [[NSSet alloc] initWithSet:[loadArray objectAtIndex:1]];
+					if ([obj isKindOfClass:[persisted class]]) {
+						[obj unionSet:persisted];
+					}
+					[persisted release];
+				}
+			}
+			[loadArray release];
+		}
 	}
 	
-	if (obj) { [dbCache setObject:obj forKey:key]; return obj; }
+	if (obj) {
+		[dbCache removeObjectForKey:key];
+		[dbCache setObject:obj forKey:key];
+		return obj;
+	}
 	return nil;
 }
 
@@ -140,6 +151,25 @@ static Cocoadis * CDISPersistence;
 {
 	[dbCache release];
 	dbCache = [[NSMutableDictionary alloc] init];
+}
+
+- (void)cleanCache {
+	if ([dbCache count] > 0) {
+		NSMutableArray * dirtyKeys = [[NSMutableArray alloc] init];
+		for (NSString * name in dbCache) {
+			id cacheObj = [dbCache objectForKey:name];
+			if ([cacheObj retainCount] == 1) {
+				[dirtyKeys addObject:name];
+			}
+		}
+		
+		if ([dirtyKeys count] > 0) {
+			for (NSString * name in dirtyKeys) {
+				[dbCache removeObjectForKey:name];
+			}
+		}
+		[dirtyKeys release];
+	}
 }
 
 - (void)clearPersistence

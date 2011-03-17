@@ -86,6 +86,7 @@
 	STAssertTrue([set isKindOfClass:[NSMutableSet class]],
 				 @"initialized set is not of NSMutableSet class, it is: %@",
 				 [[set class] description]);
+	[set release];
 }
 
 @end
