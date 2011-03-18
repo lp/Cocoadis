@@ -37,7 +37,6 @@
 	NSMutableDictionary * dbCache;
 	
 	NSNotification * cleanNotif;
-	NSPostingStyle notifStyle;
 	NSUInteger cleanIter;
 }
 
