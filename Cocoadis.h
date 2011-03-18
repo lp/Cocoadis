@@ -35,10 +35,15 @@
 	NSString * basePath;
 	
 	NSMutableDictionary * dbCache;
+	
+	NSNotification * cleanNotif;
+	NSPostingStyle notifStyle;
+	NSUInteger cleanIter;
 }
 
 @property(retain, readwrite) NSString * basePath;
 @property(retain, readonly) NSMutableDictionary * dbCache;
+@property(assign, readonly) NSUInteger cleanIter;
 
 + (id)persistence;
 
@@ -48,5 +53,8 @@
 - (void)flushCache;
 - (void)cleanCache;
 - (void)clearPersistence;
+- (void)startAutoClean;
+- (void)stopAutoClean;
+- (void)cleanNotif:(NSNotification*)nc;
 
 @end

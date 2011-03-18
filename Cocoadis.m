@@ -41,6 +41,7 @@ static Cocoadis * CDISPersistence;
 @implementation Cocoadis
 @synthesize basePath;
 @synthesize dbCache;
+@synthesize cleanIter;
 
 + (id)persistence
 {
@@ -59,6 +60,9 @@ static Cocoadis * CDISPersistence;
 		dbCache = [[NSMutableDictionary alloc] init];
 		basePath = @"/tmp";
 		[basePath retain];
+		cleanNotif = [NSNotification notificationWithName:@"cleanNotif" object:nil];
+		[cleanNotif retain];
+		cleanIter = 0;
 	}
 	return CDISPersistence;
 }
@@ -170,11 +174,29 @@ static Cocoadis * CDISPersistence;
 		}
 		[dirtyKeys release];
 	}
+	cleanIter++;
 }
 
 - (void)clearPersistence
 {
 	[fm removeItemAtPath:[self persistencePath] error:NULL];
+}
+
+- (void)startAutoClean
+{	
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cleanNotif:) name:@"cleanNotif" object:nil];
+	[[NSNotificationQueue defaultQueue] enqueueNotification:cleanNotif postingStyle:NSPostNow];
+}
+
+- (void)stopAutoClean
+{
+	[[NSNotificationCenter defaultCenter] removeObserver:self name:@"cleanNotif" object:nil];
+}
+
+- (void)cleanNotif:(NSNotification *)nc
+{
+	[self cleanCache];
+	[[NSNotificationQueue defaultQueue] enqueueNotification:cleanNotif postingStyle:NSPostWhenIdle];
 }
 
 // Private methods implementations

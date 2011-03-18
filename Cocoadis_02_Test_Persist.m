@@ -205,4 +205,23 @@
 				 [[[Cocoadis persistence] dbCache] count]);	
 }
 
+- (void)test_09_autoClean {
+	STAssertTrue([[Cocoadis persistence] cleanIter] == 4,
+				 @"the db has clean more than expected, should be 4, got: %d",
+				 [[Cocoadis persistence] cleanIter]);
+	
+	[[Cocoadis persistence] startAutoClean];
+	
+	id mArray = [[NSMutableArray alloc] initWithPersistence:@"mArray"];
+	id mDict = [[NSMutableDictionary alloc] initWithPersistence:@"mDict"];
+	id mString = [[NSMutableString alloc] initWithPersistence:@"mString"];
+	id mSet = [[NSMutableSet alloc] initWithPersistence:@"mSet"];
+	
+	STAssertTrue([[Cocoadis persistence] cleanIter] > 4,
+				 @"the db has clean more than expected, should be more than 4, got: %d",
+				 [[Cocoadis persistence] cleanIter]);
+	
+	[mArray release]; [mDict release]; [mString release]; [mSet release];
+}
+
 @end
