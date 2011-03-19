@@ -29,7 +29,7 @@
 #import <Foundation/Foundation.h>
 
 #ifdef IOS
-#import "ObjCHiredis.h"
+#import "Cocoadis.h"
 #endif
 
 #ifndef IOS
@@ -45,7 +45,8 @@
 @implementation Cocoadis_01_Basic_TestCase
 
 - (void)setUp {
-	
+	[[Cocoadis persistence] setBasePath:
+	 [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0]];
 }
 
 - (void)tearDown {
@@ -57,11 +58,12 @@
 }
 
 - (void)test_02_init_array {
-	id array = [[NSMutableArray alloc] initWithPersistence:@"mArray"];
+	NSMutableArray * array = [[NSMutableArray alloc] initWithPersistence:@"mArray"];
 	STAssertNotNil(array, @"array: returned nil");
 	STAssertTrue([array isKindOfClass:[NSMutableArray class]],
 				 @"initialized array is not of NSMutableArray class, it is: %@",
 				 [[array class] description]);
+	[array release];
 }
 
 - (void)test_03_init_dictionary {
@@ -70,6 +72,7 @@
 	STAssertTrue([dict isKindOfClass:[NSMutableDictionary class]],
 				 @"initialized dictionary is not of NSMutableDictionary class, it is: %@",
 				 [[dict class] description]);
+	[dict release];
 }
 
 - (void)test_04_init_string {
@@ -78,6 +81,7 @@
 	STAssertTrue([string isKindOfClass:[NSMutableString class]],
 				 @"initialized string is not of NSMutableString class, it is: %@",
 				 [[string class] description]);
+	[string release];
 }
 
 - (void)test_05_init_set {

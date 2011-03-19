@@ -29,7 +29,7 @@
 #import <Foundation/Foundation.h>
 
 #ifdef IOS
-#import "ObjCHiredis.h"
+#import "Cocoadis.h"
 #endif
 
 #ifndef IOS
@@ -45,7 +45,8 @@
 @implementation Cocoadis_02_TestPersist
 
 - (void)setUp {
-	[[Cocoadis persistence] setBasePath:@"/tmp"];
+	[[Cocoadis persistence] setBasePath:
+	 [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0]];
 }
 
 - (void)tearDown {

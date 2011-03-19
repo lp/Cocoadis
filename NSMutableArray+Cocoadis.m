@@ -35,6 +35,7 @@
 	self = [self init];
 	if (self) {
 		return [[Cocoadis persistence] persist:self key:key];
+		return self;
 	}
 	return nil;
 }

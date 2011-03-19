@@ -93,27 +93,29 @@ static Cocoadis * CDISPersistence;
 		if ([fm fileExistsAtPath:filePath]) {
 			NSArray * loadArray = [[NSArray alloc] initWithContentsOfFile:filePath];
 			if (loadArray) {
-				if ([[loadArray objectAtIndex:0] isEqualToString:@"NSCFArray"]) {
+				if ([[loadArray objectAtIndex:0] isEqualToString:@"__NSArrayM"] ||
+					[[loadArray objectAtIndex:0] isEqualToString:@"NSCFArray"]) {
 					persisted = [[NSArray alloc] initWithArray:[loadArray objectAtIndex:1]];
-					if ([obj isKindOfClass:[persisted class]]) {
+					if ([obj isKindOfClass:[NSMutableArray class]]) {
 						[obj addObjectsFromArray:persisted];
 					}
 					[persisted release];
-				} else if ([[loadArray objectAtIndex:0] isEqualToString:@"NSCFDictionary"]) {
+				} else if ([[loadArray objectAtIndex:0] isEqualToString:@"__NSCFDictionary"] ||
+						   [[loadArray objectAtIndex:0] isEqualToString:@"NSCFDictionary"]) {
 					persisted = [[NSDictionary alloc] initWithDictionary:[loadArray objectAtIndex:1]];
-					if ([obj isKindOfClass:[persisted class]]) {
+					if ([obj isKindOfClass:[NSMutableDictionary class]]) {
 						[obj addEntriesFromDictionary:persisted];
 					}
 					[persisted release];
 				} else if ([[loadArray objectAtIndex:0] isEqualToString:@"NSCFString"]) {
 					persisted = [[NSString alloc] initWithString:[loadArray objectAtIndex:1]];
-					if ([obj isKindOfClass:[persisted class]]) {
+					if ([obj isKindOfClass:[NSMutableString class]]) {
 						[obj setString:persisted];
 					}
 					[persisted release];
-				} else if ([[loadArray objectAtIndex:0] isEqualToString:@"NSCFSet"]) {
+				} else if ([[loadArray objectAtIndex:0] isEqualToString:@"__NSCFSet"]) {
 					persisted = [[NSSet alloc] initWithSet:[loadArray objectAtIndex:1]];
-					if ([obj isKindOfClass:[persisted class]]) {
+					if ([obj isKindOfClass:[NSMutableSet class]]) {
 						[obj unionSet:persisted];
 					}
 					[persisted release];
@@ -124,7 +126,7 @@ static Cocoadis * CDISPersistence;
 	}
 	
 	if (obj) {
-		[dbCache removeObjectForKey:key];
+		//[dbCache removeObjectForKey:key];
 		[dbCache setObject:obj forKey:key];
 		return obj;
 	}
