@@ -35,6 +35,7 @@ static Cocoadis * CDISPersistence;
 - (NSString*)filePathWithName:(NSString*)name;
 - (NSString*)persistencePath;
 - (void)mkPersistPath;
+- (void)persistMember:(id)member;
 
 @end
 
@@ -113,8 +114,10 @@ static Cocoadis * CDISPersistence;
 						[obj setString:persisted];
 					}
 					[persisted release];
-				} else if ([[loadArray objectAtIndex:0] isEqualToString:@"__NSCFSet"]) {
-					persisted = [[NSSet alloc] initWithSet:[loadArray objectAtIndex:1]];
+				} else if ([[loadArray objectAtIndex:0] isEqualToString:@"__NSCFSet"] ||
+						   [[loadArray objectAtIndex:0] isEqualToString:@"NSCFSet"]
+						   ) {
+					persisted = [[NSSet alloc] initWithArray:[loadArray objectAtIndex:1]];
 					if ([obj isKindOfClass:[NSMutableSet class]]) {
 						[obj unionSet:persisted];
 					}
@@ -126,7 +129,6 @@ static Cocoadis * CDISPersistence;
 	}
 	
 	if (obj) {
-		//[dbCache removeObjectForKey:key];
 		[dbCache setObject:obj forKey:key];
 		return obj;
 	}
@@ -141,14 +143,19 @@ static Cocoadis * CDISPersistence;
 	NSString * name;
 	while (name = [dbNames nextObject]) {
 		id saveObj = [dbCache objectForKey:name];
+		
+		NSString * className = [[saveObj class] description];
+		if ([saveObj isKindOfClass:[NSMutableSet class]]) {
+			saveObj = [saveObj allObjects];
+		}
 		NSArray * saveArray = [[NSArray alloc] initWithObjects:
-							   [[saveObj class] description],
-							   saveObj, nil];
+							   className,
+							   [saveObj copy], nil];
 		NSString * filePath = [self filePathWithName:name];
 		if ([fm fileExistsAtPath:filePath]) {
 			[fm removeItemAtPath:filePath error:NULL];
 		}
-		[saveArray writeToFile:filePath atomically:YES];
+		[NSThread detachNewThreadSelector:@selector(persistMember:) toTarget:self withObject:[NSArray arrayWithObjects:filePath,saveArray,nil]];
 		[saveArray release];
 	}
 }
@@ -219,6 +226,14 @@ static Cocoadis * CDISPersistence;
 	if ((! [fm fileExistsAtPath:[self persistencePath] isDirectory:&dir]) || (! dir) ) {
 		[fm createDirectoryAtPath:[self persistencePath] withIntermediateDirectories:YES attributes:nil error:NULL];
 	}
+}
+
+- (void)persistMember:(id)member
+{
+	NSAutoreleasePool *pool;
+    pool = [[NSAutoreleasePool alloc] init];
+	[[member objectAtIndex:1] writeToFile:[member objectAtIndex:0] atomically:YES];
+	[pool drain];
 }
 
 @end
