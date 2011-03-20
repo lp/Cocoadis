@@ -95,7 +95,8 @@ static Cocoadis * CDISPersistence;
 			NSArray * loadArray = [[NSArray alloc] initWithContentsOfFile:filePath];
 			if (loadArray) {
 				if ([[loadArray objectAtIndex:0] isEqualToString:@"__NSArrayM"] ||
-					[[loadArray objectAtIndex:0] isEqualToString:@"NSCFArray"]) {
+					[[loadArray objectAtIndex:0] isEqualToString:@"NSCFArray"] ||
+					[[loadArray objectAtIndex:0] isEqualToString:@"__NSArrayI"]) {
 					persisted = [[NSArray alloc] initWithArray:[loadArray objectAtIndex:1]];
 					if ([obj isKindOfClass:[NSMutableArray class]]) {
 						[obj addObjectsFromArray:persisted];
@@ -143,20 +144,13 @@ static Cocoadis * CDISPersistence;
 	NSString * name;
 	while (name = [dbNames nextObject]) {
 		id saveObj = [dbCache objectForKey:name];
-		
-		NSString * className = [[saveObj class] description];
-		if ([saveObj isKindOfClass:[NSMutableSet class]]) {
-			saveObj = [saveObj allObjects];
-		}
-		NSArray * saveArray = [[NSArray alloc] initWithObjects:
-							   className,
-							   [saveObj copy], nil];
 		NSString * filePath = [self filePathWithName:name];
 		if ([fm fileExistsAtPath:filePath]) {
 			[fm removeItemAtPath:filePath error:NULL];
 		}
-		[NSThread detachNewThreadSelector:@selector(persistMember:) toTarget:self withObject:[NSArray arrayWithObjects:filePath,saveArray,nil]];
-		[saveArray release];
+		
+		[NSThread detachNewThreadSelector:@selector(persistMember:) toTarget:self withObject:
+		 [NSArray arrayWithObjects:filePath,[saveObj copy],nil]];
 	}
 }
 
@@ -232,7 +226,19 @@ static Cocoadis * CDISPersistence;
 {
 	NSAutoreleasePool *pool;
     pool = [[NSAutoreleasePool alloc] init];
-	[[member objectAtIndex:1] writeToFile:[member objectAtIndex:0] atomically:YES];
+	
+	NSString * filePath = [member objectAtIndex:0];
+	id saveObj = [member objectAtIndex:1];
+	
+	NSString * className = [[saveObj class] description];
+	if ([saveObj isKindOfClass:[NSMutableSet class]]) {
+		saveObj = [saveObj allObjects];
+	}
+	NSArray * saveArray = [[[NSArray alloc] initWithObjects:
+						   className,
+						   saveObj, nil] autorelease];
+	
+	[saveArray writeToFile:filePath atomically:YES];
 	[pool drain];
 }
 

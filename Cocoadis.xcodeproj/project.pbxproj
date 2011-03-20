@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0C0BF0F113340E9E00241221 /* Cocoadis_02_Test_Persist.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C201D85132AA411008E77D7 /* Cocoadis_02_Test_Persist.m */; };
 		0C0BF279133520B600241221 /* Cocoadis_01_Basic_TestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C8BD922132A87B000430BD0 /* Cocoadis_01_Basic_TestCase.m */; };
+		0C0BF2AA1336693C00241221 /* Cocoadis_02_Test_Persist.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C201D85132AA411008E77D7 /* Cocoadis_02_Test_Persist.m */; };
 		0C201D6E132A8EA8008E77D7 /* Cocoadis in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* Cocoadis */; };
 		0C201D86132AA411008E77D7 /* Cocoadis_02_Test_Persist.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C201D85132AA411008E77D7 /* Cocoadis_02_Test_Persist.m */; };
 		0C201F99132D1895008E77D7 /* NSMutableArray+Cocoadis.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C201F97132D1895008E77D7 /* NSMutableArray+Cocoadis.h */; settings = {ATTRIBUTES = (Private, ); }; };
@@ -474,7 +474,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C2023A713338681008E77D7 /* Cocoadis_01_Basic_TestCase.m in Sources */,
-				0C0BF0F113340E9E00241221 /* Cocoadis_02_Test_Persist.m in Sources */,
+				0C0BF2AA1336693C00241221 /* Cocoadis_02_Test_Persist.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

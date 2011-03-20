@@ -148,19 +148,19 @@
 	STAssertTrue([mArray2 count] == 0, @"array of wrong length");
 }
 
-//- (void)test_07_clearPersistence {
-//	id mArray = [[NSMutableArray alloc] initWithPersistence:@"mArray"];
-//	[mArray addObject:@"a"];
-//	STAssertTrue([mArray count] == 1, @"array of wrong length");
-//	
-//	[[Cocoadis persistence] saveAll];
-//	[NSThread sleepForTimeInterval:1];
-//	[[Cocoadis persistence] flushCache];
-//	[[Cocoadis persistence] clearPersistence];
-//	
-//	id mArray2 = [[NSMutableArray alloc] initWithPersistence:@"mArray"];
-//	STAssertTrue([mArray2 count] == 0, @"array of wrong length");
-//}
+- (void)test_07_clearPersistence {
+	id mArray = [[NSMutableArray alloc] initWithPersistence:@"mArray"];
+	[mArray addObject:@"a"];
+	STAssertTrue([mArray count] == 1, @"array of wrong length");
+	
+	[[Cocoadis persistence] saveAll];
+	[NSThread sleepForTimeInterval:1];
+	[[Cocoadis persistence] flushCache];
+	[[Cocoadis persistence] clearPersistence];
+	
+	id mArray2 = [[NSMutableArray alloc] initWithPersistence:@"mArray"];
+	STAssertTrue([mArray2 count] == 0, @"array of wrong length");
+}
 
 - (void)test_08_cleanCache {
 	STAssertTrue([[[Cocoadis persistence] dbCache] count] == 0, @"the db cache doesn't start clean");
