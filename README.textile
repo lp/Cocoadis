@@ -1,8 +1,7 @@
-pre.
-  ___  _____  ___  _____    __    ____  ____  ___ 
- / __)(  _  )/ __)(  _  )  /__\  (  _ \(_  _)/ __)
-( (__  )(_)(( (__  )(_)(  /(__)\  )(_) )_)(_ \__ \
- \___)(_____)\___)(_____)(__)(__)(____/(____)(___/
+pre.  ___  _____  ___  _____    __    ____  ____  ___ 
+     / __)(  _  )/ __)(  _  )  /__\  (  _ \(_  _)/ __)
+    ( (__  )(_)(( (__  )(_)(  /(__)\  )(_) )_)(_ \__ \
+     \___)(_____)\___)(_____)(__)(__)(____/(____)(___/
 
 h3. Simple Data Persistence for iOS and MacOSX
 
@@ -18,21 +17,31 @@ NSMutableArray * persistedArray = [[NSMutableArray alloc] initWithPersistence:@"
 
 h4. saving:
 
-bc. // per instance
-[persistedArray saveToPersistence];
-// whole bunch
-[[Cocoadis persistence] saveAll];
+h5. per instance
+
+bc. [persistedArray saveToPersistence];
+
+h5. whole bunch
+
+bc. [[Cocoadis persistence] saveAll];
 
 h4. managing:
 
-bc. // releasing unused memory from the cache
-[[Cocoadis persistence] cleanCache];
-// automatic releasing
-[[Cocoadis persistence] startAutoClean];
+h5. releasing unused memory from the cache
+
+bc. [[Cocoadis persistence] cleanCache];
+
+h5. automatic releasing
+
+bc. [[Cocoadis persistence] startAutoClean];
 [[Cocoadis persistence] stopAutoClean];
-// reset empty the cache:
-[[Cocoadis persistence] flushCache];
-// wipe the whole persistence DANGER!!!
-[[Cocoadis persistence] clearPersistence]
+
+h5. reset empty the cache:
+
+bc. [[Cocoadis persistence] flushCache];
+
+h5. wipe the whole persistence DANGER!!!
+
+bc. [[Cocoadis persistence] clearPersistence]
 
 !https://github.com/lp/Cocoadis/blob/master/cocoadis_graph.png!
