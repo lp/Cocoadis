@@ -25,13 +25,9 @@
 // 
 
 #import <Foundation/Foundation.h>
-#import "NSMutableArray+Cocoadis.h"
-#import "NSMutableDictionary+Cocoadis.h"
-#import "NSMutableString+Cocoadis.h"
-#import "NSMutableSet+Cocoadis.h"
+#import "NSObject+Cocoadis.h"
 
 @interface Cocoadis : NSObject {
-	NSFileManager * fm;
 	NSString * basePath;
 	
 	NSMutableDictionary * dbCache;

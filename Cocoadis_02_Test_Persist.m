@@ -228,4 +228,16 @@
 	[mArray release]; [mDict release]; [mString release]; [mSet release];
 }
 
+- (void)test_10_saveToPersistence {
+	id mArray = [[NSMutableArray alloc] initWithPersistence:@"mArrayAlone"];
+	[mArray addObject:@"zzz"];
+		
+	[mArray saveToPersistence];
+	[NSThread sleepForTimeInterval:1];
+	[[Cocoadis persistence] flushCache];
+	
+	id mArray2 = [[NSMutableArray alloc] initWithPersistence:@"mArrayAlone"];
+	STAssertTrue([mArray2 containsObject:@"zzz"], @"saveToPersistence didn't save object");
+}
+
 @end

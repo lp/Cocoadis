@@ -9,38 +9,20 @@
 /* Begin PBXBuildFile section */
 		0C0BF279133520B600241221 /* Cocoadis_01_Basic_TestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C8BD922132A87B000430BD0 /* Cocoadis_01_Basic_TestCase.m */; };
 		0C0BF2AA1336693C00241221 /* Cocoadis_02_Test_Persist.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C201D85132AA411008E77D7 /* Cocoadis_02_Test_Persist.m */; };
-		0C201D6E132A8EA8008E77D7 /* Cocoadis.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* Cocoadis.framework */; };
+		0C0BF3231337A4BC00241221 /* NSObject+Cocoadis.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C0BF3211337A4BC00241221 /* NSObject+Cocoadis.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		0C0BF3241337A4BC00241221 /* NSObject+Cocoadis.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C0BF3221337A4BC00241221 /* NSObject+Cocoadis.m */; };
+		0C201D6E132A8EA8008E77D7 /* Cocoadis in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* Cocoadis */; };
 		0C201D86132AA411008E77D7 /* Cocoadis_02_Test_Persist.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C201D85132AA411008E77D7 /* Cocoadis_02_Test_Persist.m */; };
-		0C201F99132D1895008E77D7 /* NSMutableArray+Cocoadis.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C201F97132D1895008E77D7 /* NSMutableArray+Cocoadis.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		0C201F9A132D1895008E77D7 /* NSMutableArray+Cocoadis.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C201F98132D1895008E77D7 /* NSMutableArray+Cocoadis.m */; };
-		0C2021111330120A008E77D7 /* NSMutableDictionary+Cocoadis.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C20210F1330120A008E77D7 /* NSMutableDictionary+Cocoadis.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		0C2021121330120A008E77D7 /* NSMutableDictionary+Cocoadis.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C2021101330120A008E77D7 /* NSMutableDictionary+Cocoadis.m */; };
-		0C20216E13310B45008E77D7 /* NSMutableString+Cocoadis.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C20216C13310B45008E77D7 /* NSMutableString+Cocoadis.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		0C20216F13310B45008E77D7 /* NSMutableString+Cocoadis.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C20216D13310B45008E77D7 /* NSMutableString+Cocoadis.m */; };
-		0C2021F9133144AE008E77D7 /* NSMutableSet+Cocoadis.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C2021F7133144AE008E77D7 /* NSMutableSet+Cocoadis.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		0C2021FA133144AE008E77D7 /* NSMutableSet+Cocoadis.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C2021F8133144AE008E77D7 /* NSMutableSet+Cocoadis.m */; };
 		0C20237D13338596008E77D7 /* Cocoadis.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C8BD863132A81A300430BD0 /* Cocoadis.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0C20237E13338599008E77D7 /* Cocoadis.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C8BD864132A81A300430BD0 /* Cocoadis.m */; };
-		0C20237F1333859E008E77D7 /* NSMutableArray+Cocoadis.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C201F97132D1895008E77D7 /* NSMutableArray+Cocoadis.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		0C2023801333859F008E77D7 /* NSMutableArray+Cocoadis.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C201F98132D1895008E77D7 /* NSMutableArray+Cocoadis.m */; };
-		0C202381133385A0008E77D7 /* NSMutableDictionary+Cocoadis.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C20210F1330120A008E77D7 /* NSMutableDictionary+Cocoadis.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		0C202382133385A1008E77D7 /* NSMutableDictionary+Cocoadis.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C2021101330120A008E77D7 /* NSMutableDictionary+Cocoadis.m */; };
-		0C202383133385A2008E77D7 /* NSMutableSet+Cocoadis.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C2021F7133144AE008E77D7 /* NSMutableSet+Cocoadis.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		0C202384133385A6008E77D7 /* NSMutableSet+Cocoadis.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C2021F8133144AE008E77D7 /* NSMutableSet+Cocoadis.m */; };
-		0C202385133385A9008E77D7 /* NSMutableString+Cocoadis.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C20216C13310B45008E77D7 /* NSMutableString+Cocoadis.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		0C202386133385AC008E77D7 /* NSMutableString+Cocoadis.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C20216D13310B45008E77D7 /* NSMutableString+Cocoadis.m */; };
 		0C20238913338600008E77D7 /* Cocoadis.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C8BD863132A81A300430BD0 /* Cocoadis.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0C20238A13338602008E77D7 /* Cocoadis.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C8BD864132A81A300430BD0 /* Cocoadis.m */; };
-		0C20238B13338607008E77D7 /* NSMutableArray+Cocoadis.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C201F97132D1895008E77D7 /* NSMutableArray+Cocoadis.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		0C20238C13338607008E77D7 /* NSMutableArray+Cocoadis.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C201F98132D1895008E77D7 /* NSMutableArray+Cocoadis.m */; };
-		0C20238D13338608008E77D7 /* NSMutableDictionary+Cocoadis.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C20210F1330120A008E77D7 /* NSMutableDictionary+Cocoadis.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		0C20238E13338609008E77D7 /* NSMutableDictionary+Cocoadis.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C2021101330120A008E77D7 /* NSMutableDictionary+Cocoadis.m */; };
-		0C20238F1333860A008E77D7 /* NSMutableSet+Cocoadis.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C2021F7133144AE008E77D7 /* NSMutableSet+Cocoadis.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		0C2023901333860B008E77D7 /* NSMutableSet+Cocoadis.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C2021F8133144AE008E77D7 /* NSMutableSet+Cocoadis.m */; };
-		0C2023911333860E008E77D7 /* NSMutableString+Cocoadis.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C20216C13310B45008E77D7 /* NSMutableString+Cocoadis.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		0C2023921333860F008E77D7 /* NSMutableString+Cocoadis.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C20216D13310B45008E77D7 /* NSMutableString+Cocoadis.m */; };
 		0C2023A313338659008E77D7 /* libCocoadis_Simulator.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C20237213338541008E77D7 /* libCocoadis_Simulator.a */; };
 		0C2023A713338681008E77D7 /* Cocoadis_01_Basic_TestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C8BD922132A87B000430BD0 /* Cocoadis_01_Basic_TestCase.m */; };
+		0C8B39661337BE0B009EF034 /* NSObject+Cocoadis.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C0BF3211337A4BC00241221 /* NSObject+Cocoadis.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		0C8B39671337BE0C009EF034 /* NSObject+Cocoadis.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C0BF3221337A4BC00241221 /* NSObject+Cocoadis.m */; };
+		0C8B39B41337C08A009EF034 /* NSObject+Cocoadis.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C0BF3211337A4BC00241221 /* NSObject+Cocoadis.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		0C8B39B51337C08A009EF034 /* NSObject+Cocoadis.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C0BF3221337A4BC00241221 /* NSObject+Cocoadis.m */; };
 		0C8BD865132A81A300430BD0 /* Cocoadis.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C8BD863132A81A300430BD0 /* Cocoadis.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0C8BD866132A81A300430BD0 /* Cocoadis.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C8BD864132A81A300430BD0 /* Cocoadis.m */; };
 		0C8BD882132A829A00430BD0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0867D69BFE84028FC02AAC07 /* Foundation.framework */; };
@@ -68,15 +50,9 @@
 /* Begin PBXFileReference section */
 		0867D69BFE84028FC02AAC07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		089C1667FE841158C02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		0C0BF3211337A4BC00241221 /* NSObject+Cocoadis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Cocoadis.h"; sourceTree = "<group>"; };
+		0C0BF3221337A4BC00241221 /* NSObject+Cocoadis.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Cocoadis.m"; sourceTree = "<group>"; };
 		0C201D85132AA411008E77D7 /* Cocoadis_02_Test_Persist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cocoadis_02_Test_Persist.m; sourceTree = "<group>"; };
-		0C201F97132D1895008E77D7 /* NSMutableArray+Cocoadis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+Cocoadis.h"; sourceTree = "<group>"; };
-		0C201F98132D1895008E77D7 /* NSMutableArray+Cocoadis.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Cocoadis.m"; sourceTree = "<group>"; };
-		0C20210F1330120A008E77D7 /* NSMutableDictionary+Cocoadis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+Cocoadis.h"; sourceTree = "<group>"; };
-		0C2021101330120A008E77D7 /* NSMutableDictionary+Cocoadis.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+Cocoadis.m"; sourceTree = "<group>"; };
-		0C20216C13310B45008E77D7 /* NSMutableString+Cocoadis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableString+Cocoadis.h"; sourceTree = "<group>"; };
-		0C20216D13310B45008E77D7 /* NSMutableString+Cocoadis.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableString+Cocoadis.m"; sourceTree = "<group>"; };
-		0C2021F7133144AE008E77D7 /* NSMutableSet+Cocoadis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableSet+Cocoadis.h"; sourceTree = "<group>"; };
-		0C2021F8133144AE008E77D7 /* NSMutableSet+Cocoadis.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableSet+Cocoadis.m"; sourceTree = "<group>"; };
 		0C20236713338520008E77D7 /* libCocoadis_iOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCocoadis_iOS.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C20237213338541008E77D7 /* libCocoadis_Simulator.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCocoadis_Simulator.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C2023991333863B008E77D7 /* Test_Cocoadis_Simulator.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Test_Cocoadis_Simulator.octest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -88,7 +64,7 @@
 		0C8BD922132A87B000430BD0 /* Cocoadis_01_Basic_TestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cocoadis_01_Basic_TestCase.m; sourceTree = "<group>"; };
 		32DBCF5E0370ADEE00C91783 /* Cocoadis_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cocoadis_Prefix.pch; sourceTree = "<group>"; };
 		8DC2EF5A0486A6940098B216 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8DC2EF5B0486A6940098B216 /* Cocoadis.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Cocoadis.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8DC2EF5B0486A6940098B216 /* Cocoadis */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.framework; path = Cocoadis; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,7 +95,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C8BD958132A8D9400430BD0 /* Foundation.framework in Frameworks */,
-				0C201D6E132A8EA8008E77D7 /* Cocoadis.framework in Frameworks */,
+				0C201D6E132A8EA8008E77D7 /* Cocoadis in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,7 +113,7 @@
 		034768DFFF38A50411DB9C8B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8DC2EF5B0486A6940098B216 /* Cocoadis.framework */,
+				8DC2EF5B0486A6940098B216 /* Cocoadis */,
 				0C8BD915132A871E00430BD0 /* Test_Cocoadis_OSX.octest */,
 				0C20236713338520008E77D7 /* libCocoadis_iOS.a */,
 				0C20237213338541008E77D7 /* libCocoadis_Simulator.a */,
@@ -184,14 +160,8 @@
 			children = (
 				0C8BD863132A81A300430BD0 /* Cocoadis.h */,
 				0C8BD864132A81A300430BD0 /* Cocoadis.m */,
-				0C201F97132D1895008E77D7 /* NSMutableArray+Cocoadis.h */,
-				0C201F98132D1895008E77D7 /* NSMutableArray+Cocoadis.m */,
-				0C20210F1330120A008E77D7 /* NSMutableDictionary+Cocoadis.h */,
-				0C2021101330120A008E77D7 /* NSMutableDictionary+Cocoadis.m */,
-				0C20216C13310B45008E77D7 /* NSMutableString+Cocoadis.h */,
-				0C20216D13310B45008E77D7 /* NSMutableString+Cocoadis.m */,
-				0C2021F7133144AE008E77D7 /* NSMutableSet+Cocoadis.h */,
-				0C2021F8133144AE008E77D7 /* NSMutableSet+Cocoadis.m */,
+				0C0BF3211337A4BC00241221 /* NSObject+Cocoadis.h */,
+				0C0BF3221337A4BC00241221 /* NSObject+Cocoadis.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -236,10 +206,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C20237D13338596008E77D7 /* Cocoadis.h in Headers */,
-				0C20237F1333859E008E77D7 /* NSMutableArray+Cocoadis.h in Headers */,
-				0C202381133385A0008E77D7 /* NSMutableDictionary+Cocoadis.h in Headers */,
-				0C202383133385A2008E77D7 /* NSMutableSet+Cocoadis.h in Headers */,
-				0C202385133385A9008E77D7 /* NSMutableString+Cocoadis.h in Headers */,
+				0C8B39B41337C08A009EF034 /* NSObject+Cocoadis.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -248,10 +215,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C20238913338600008E77D7 /* Cocoadis.h in Headers */,
-				0C20238B13338607008E77D7 /* NSMutableArray+Cocoadis.h in Headers */,
-				0C20238D13338608008E77D7 /* NSMutableDictionary+Cocoadis.h in Headers */,
-				0C20238F1333860A008E77D7 /* NSMutableSet+Cocoadis.h in Headers */,
-				0C2023911333860E008E77D7 /* NSMutableString+Cocoadis.h in Headers */,
+				0C8B39661337BE0B009EF034 /* NSObject+Cocoadis.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,10 +224,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C8BD865132A81A300430BD0 /* Cocoadis.h in Headers */,
-				0C201F99132D1895008E77D7 /* NSMutableArray+Cocoadis.h in Headers */,
-				0C2021111330120A008E77D7 /* NSMutableDictionary+Cocoadis.h in Headers */,
-				0C20216E13310B45008E77D7 /* NSMutableString+Cocoadis.h in Headers */,
-				0C2021F9133144AE008E77D7 /* NSMutableSet+Cocoadis.h in Headers */,
+				0C0BF3231337A4BC00241221 /* NSObject+Cocoadis.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,7 +319,7 @@
 			name = Cocoadis;
 			productInstallPath = "$(HOME)/Library/Frameworks";
 			productName = Cocoadis;
-			productReference = 8DC2EF5B0486A6940098B216 /* Cocoadis.framework */;
+			productReference = 8DC2EF5B0486A6940098B216 /* Cocoadis */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -450,10 +411,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C20237E13338599008E77D7 /* Cocoadis.m in Sources */,
-				0C2023801333859F008E77D7 /* NSMutableArray+Cocoadis.m in Sources */,
-				0C202382133385A1008E77D7 /* NSMutableDictionary+Cocoadis.m in Sources */,
-				0C202384133385A6008E77D7 /* NSMutableSet+Cocoadis.m in Sources */,
-				0C202386133385AC008E77D7 /* NSMutableString+Cocoadis.m in Sources */,
+				0C8B39B51337C08A009EF034 /* NSObject+Cocoadis.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -462,10 +420,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C20238A13338602008E77D7 /* Cocoadis.m in Sources */,
-				0C20238C13338607008E77D7 /* NSMutableArray+Cocoadis.m in Sources */,
-				0C20238E13338609008E77D7 /* NSMutableDictionary+Cocoadis.m in Sources */,
-				0C2023901333860B008E77D7 /* NSMutableSet+Cocoadis.m in Sources */,
-				0C2023921333860F008E77D7 /* NSMutableString+Cocoadis.m in Sources */,
+				0C8B39671337BE0C009EF034 /* NSObject+Cocoadis.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -492,10 +447,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C8BD866132A81A300430BD0 /* Cocoadis.m in Sources */,
-				0C201F9A132D1895008E77D7 /* NSMutableArray+Cocoadis.m in Sources */,
-				0C2021121330120A008E77D7 /* NSMutableDictionary+Cocoadis.m in Sources */,
-				0C20216F13310B45008E77D7 /* NSMutableString+Cocoadis.m in Sources */,
-				0C2021FA133144AE008E77D7 /* NSMutableSet+Cocoadis.m in Sources */,
+				0C0BF3241337A4BC00241221 /* NSObject+Cocoadis.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

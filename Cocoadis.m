@@ -25,7 +25,6 @@
 // 
 
 #import "Cocoadis.h"
-#import "NSMutableArray+Cocoadis.h"
 
 static Cocoadis * CDISPersistence;
 
@@ -57,7 +56,6 @@ static Cocoadis * CDISPersistence;
 	}
 	else if(self = CDISPersistence = [[super init] retain])
 	{
-		fm = [[NSFileManager alloc] init];
 		dbCache = [[NSMutableDictionary alloc] init];
 		basePath = @"/tmp";
 		[basePath retain];
@@ -70,7 +68,6 @@ static Cocoadis * CDISPersistence;
 
 - (void)dealloc {
 	[self saveAll];
-	[fm release];
 	[dbCache release];
 	[basePath release];
 	[super dealloc];
@@ -91,7 +88,7 @@ static Cocoadis * CDISPersistence;
 		}
 	} else {
 		NSString * filePath = [self filePathWithName:key];
-		if ([fm fileExistsAtPath:filePath]) {
+		if ([[NSFileManager defaultManager] fileExistsAtPath:filePath]) {
 			NSArray * loadArray = [[NSArray alloc] initWithContentsOfFile:filePath];
 			if (loadArray) {
 				if ([[loadArray objectAtIndex:0] isEqualToString:@"__NSArrayM"] ||
@@ -181,7 +178,7 @@ static Cocoadis * CDISPersistence;
 
 - (void)clearPersistence
 {
-	[fm removeItemAtPath:[self persistencePath] error:NULL];
+	[[NSFileManager defaultManager] removeItemAtPath:[self persistencePath] error:NULL];
 }
 
 - (void)startAutoClean
@@ -216,8 +213,8 @@ static Cocoadis * CDISPersistence;
 - (void)mkPersistPath
 {
 	BOOL dir = NO;
-	if ((! [fm fileExistsAtPath:[self persistencePath] isDirectory:&dir]) || (! dir) ) {
-		[fm createDirectoryAtPath:[self persistencePath] withIntermediateDirectories:YES attributes:nil error:NULL];
+	if ((! [[NSFileManager defaultManager] fileExistsAtPath:[self persistencePath] isDirectory:&dir]) || (! dir) ) {
+		[[NSFileManager defaultManager] createDirectoryAtPath:[self persistencePath] withIntermediateDirectories:YES attributes:nil error:NULL];
 	}
 }
 
@@ -231,19 +228,20 @@ static Cocoadis * CDISPersistence;
 	NSString * filePath = [member objectAtIndex:0];
 	id saveObj = [member objectAtIndex:1];
 	
-	if ([fm fileExistsAtPath:filePath]) {
-		[fm removeItemAtPath:filePath error:NULL];
+	if ([[NSFileManager defaultManager] fileExistsAtPath:filePath]) {
+		[[NSFileManager defaultManager] removeItemAtPath:filePath error:NULL];
 	}
 	
 	NSString * className = [[saveObj class] description];
 	if ([saveObj isKindOfClass:[NSMutableSet class]]) {
 		saveObj = [saveObj allObjects];
 	}
-	NSArray * saveArray = [[[NSArray alloc] initWithObjects:
+	NSArray * saveArray = [[NSArray alloc] initWithObjects:
 						   className,
-						   saveObj, nil] autorelease];
+						   saveObj, nil];
 	
 	[saveArray writeToFile:filePath atomically:YES];
+	[saveArray release];
 	[pool drain];
 }
 

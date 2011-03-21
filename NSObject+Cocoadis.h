@@ -1,8 +1,8 @@
 //
-//  NSMutableSet+Cocoadis.h
+//  NSObject+Cocoadis.h
 //  Cocoadis
 //
-//  Created by Louis-Philippe on 11-03-16.
+//  Created by Louis-Philippe on 11-03-21.
 //  Copyright (c) 2010 Louis-Philippe Perron.
 // 
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -24,11 +24,17 @@
 //  THE SOFTWARE.
 // 
 
-
 #import <Foundation/Foundation.h>
 
-@interface NSMutableSet (Cocoadis)
+@interface NSObject (Cocoadis)
 
 -(id)initWithPersistence:(NSString*)key;
+-(void)saveToPersistence;
+
+@end
+
+@interface NSMutableDictionary (Cocoadis)
+
+-(NSString*)keyForObject:(id)obj;
 
 @end

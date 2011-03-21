@@ -1,8 +1,8 @@
 //
-//  NSMutableDictionary+Cocoadis.h
+//  NSObject+Cocoadis.m
 //  Cocoadis
 //
-//  Created by Louis-Philippe on 11-03-15.
+//  Created by Louis-Philippe on 11-03-21.
 //  Copyright (c) 2010 Louis-Philippe Perron.
 // 
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -24,15 +24,49 @@
 //  THE SOFTWARE.
 // 
 
+#import "NSObject+Cocoadis.h"
+#import "Cocoadis.h"
 
-#import <Foundation/Foundation.h>
+@implementation NSObject (Cocoadis)
 
-@interface NSMutableDictionary (Cocoadis)
+-(id)initWithPersistence:(NSString*)key
+{
+	self = [self init];
+	if (self) {
+		if ([self isKindOfClass:[NSMutableArray class]] ||
+			[self isKindOfClass:[NSMutableDictionary class]] ||
+			[self isKindOfClass:[NSMutableString class]] ||
+			[self isKindOfClass:[NSMutableSet class]]
+			) {
+			return [[Cocoadis persistence] persist:self key:key];
+		} else {
+			[self doesNotRecognizeSelector:@selector(saveToPersistence)];
+		}
+	}
+	return nil;
+}
 
--(id)initWithPersistence:(NSString*)key;
-
-// for cocoadis access
-
--(NSString*)keyForObject:(id)obj;
+-(void)saveToPersistence
+{
+	if ([self isKindOfClass:[NSMutableArray class]] ||
+		[self isKindOfClass:[NSMutableDictionary class]] ||
+		[self isKindOfClass:[NSMutableString class]] ||
+		[self isKindOfClass:[NSMutableSet class]]
+		) {
+		[[Cocoadis persistence] saveMember:[self copy]];
+	} else {
+		[self doesNotRecognizeSelector:@selector(saveToPersistence)];
+	}
+}
 
 @end
+
+@implementation NSMutableDictionary (Cocoadis)
+
+-(NSString*)keyForObject:(id)obj
+{	
+	return [[self allKeys] objectAtIndex:[[self allValues] indexOfObject:obj]];
+}
+
+@end
+
