@@ -1,9 +1,3 @@
-pre. ;
-  ___  _____  ___  _____    __    ____  ____  ___ 
- / __)(  _  )/ __)(  _  )  /__\  (  _ \(_  _)/ __)
-( (__  )(_)(( (__  )(_)(  /(__)\  )(_) )_)(_ \__ \
- \___)(_____)\___)(_____)(__)(__)(____/(____)(___/
-
 h3. Simple Data Persistence for iOS and MacOSX
 
 !https://github.com/lp/Cocoadis/raw/master/cocoadis_graph.png!
