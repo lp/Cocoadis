@@ -44,4 +44,4 @@ h5. wipe the whole persistence DANGER!!!
 
 bc. [[Cocoadis persistence] clearPersistence]
 
-!cocoadis_graph.png!
+!https://github.com/lp/Cocoadis/raw/master/cocoadis_graph.png!
