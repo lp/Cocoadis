@@ -1,18 +1,18 @@
-h3. Simple Data Persistence for iOS and MacOSX
+h2. Simple Data Persistence for iOS and MacOSX
 
 !https://github.com/lp/Cocoadis/raw/master/cocoadis_graph.png!
 
-p. Cocoadis:
+h3. Cocoadis:
 * persist your data easily.
 * works transparently with Strings, Arrays, Dictionaries and Sets.
 * efficient in memory cache.
 
-h4. init:
+h3. init:
 
 bc. [[Cocoadis persistence] setBasePath:@"tmp"];
 NSMutableArray * persistedArray = [[NSMutableArray alloc] initWithPersistence:@"myArray"];
 
-h4. saving:
+h3. saving:
 
 h5. per instance
 
@@ -22,7 +22,7 @@ h5. whole bunch
 
 bc. [[Cocoadis persistence] saveAll];
 
-h4. managing:
+h3. managing:
 
 h5. releasing unused memory from the cache
 
