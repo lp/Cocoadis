@@ -137,21 +137,20 @@ static Cocoadis * CDISPersistence;
 }
 
 - (void)saveAll
-{
-	[self mkPersistPath];
-	
-	NSEnumerator * dbNames = [dbCache keyEnumerator];
-	NSString * name;
-	while (name = [dbNames nextObject]) {
-		id saveObj = [dbCache objectForKey:name];
-		NSString * filePath = [self filePathWithName:name];
-		if ([fm fileExistsAtPath:filePath]) {
-			[fm removeItemAtPath:filePath error:NULL];
-		}
-		
-		[NSThread detachNewThreadSelector:@selector(persistMember:) toTarget:self withObject:
-		 [NSArray arrayWithObjects:filePath,[saveObj copy],nil]];
+{	
+	NSEnumerator * dbObjs = [dbCache objectEnumerator];
+	id obj;
+	while (obj = [dbObjs nextObject]) {
+		[self saveMember:obj];
 	}
+}
+
+- (void)saveMember:(id)member
+{
+	NSString * name = [dbCache keyForObject:member];
+	NSString * filePath = [self filePathWithName:name];
+	[NSThread detachNewThreadSelector:@selector(persistMember:) toTarget:self withObject:
+	 [NSArray arrayWithObjects:filePath,[member copy],nil]];
 }
 
 - (void)flushCache
@@ -227,8 +226,14 @@ static Cocoadis * CDISPersistence;
 	NSAutoreleasePool *pool;
     pool = [[NSAutoreleasePool alloc] init];
 	
+	[self mkPersistPath];
+	
 	NSString * filePath = [member objectAtIndex:0];
 	id saveObj = [member objectAtIndex:1];
+	
+	if ([fm fileExistsAtPath:filePath]) {
+		[fm removeItemAtPath:filePath error:NULL];
+	}
 	
 	NSString * className = [[saveObj class] description];
 	if ([saveObj isKindOfClass:[NSMutableSet class]]) {

@@ -31,4 +31,8 @@
 
 -(id)initWithPersistence:(NSString*)key;
 
+// for cocoadis access
+
+-(NSString*)keyForObject:(id)obj;
+
 @end

@@ -39,4 +39,9 @@
 	return nil;
 }
 
+-(NSString*)keyForObject:(id)obj
+{	
+	return [[self allKeys] objectAtIndex:[[self allValues] indexOfObject:obj]];
+}
+
 @end

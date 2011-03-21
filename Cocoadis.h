@@ -49,6 +49,7 @@
 // db management methods
 - (id)persist:(id)obj key:(NSString*)key;
 - (void)saveAll;
+- (void)saveMember:(id)member;
 - (void)flushCache;
 - (void)cleanCache;
 - (void)clearPersistence;
