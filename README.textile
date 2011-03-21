@@ -9,7 +9,7 @@ h3. Cocoadis:
 
 h3. init:
 
-bc. [[Cocoadis persistence] setBasePath:@"tmp"];
+bc. [[Cocoadis persistence] setBasePath:NSTemporaryDirectory()];
 NSMutableArray * persistedArray = [[NSMutableArray alloc] initWithPersistence:@"myArray"];
 
 h3. saving:

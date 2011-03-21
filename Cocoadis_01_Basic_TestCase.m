@@ -45,9 +45,7 @@
 @implementation Cocoadis_01_Basic_TestCase
 
 - (void)setUp {
-	//[[Cocoadis persistence] setBasePath:
-//	 [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0]];
-	[[Cocoadis persistence] setBasePath:@"tmp"];
+	[[Cocoadis persistence] setBasePath:NSTemporaryDirectory()];
 }
 
 - (void)tearDown {
