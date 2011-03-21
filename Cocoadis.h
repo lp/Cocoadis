@@ -49,6 +49,8 @@
 - (void)flushCache;
 - (void)cleanCache;
 - (void)clearPersistence;
+
+// auto management
 - (void)startAutoClean;
 - (void)stopAutoClean;
 - (void)cleanNotif:(NSNotification*)nc;
