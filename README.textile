@@ -6,6 +6,8 @@ pre. ;
 
 h3. Simple Data Persistence for iOS and MacOSX
 
+!https://github.com/lp/Cocoadis/raw/master/cocoadis_graph.png!
+
 p. Cocoadis:
 * persist your data easily.
 * works transparently with Strings, Arrays, Dictionaries and Sets.
@@ -45,4 +47,3 @@ h5. wipe the whole persistence DANGER!!!
 
 bc. [[Cocoadis persistence] clearPersistence]
 
-!https://github.com/lp/Cocoadis/raw/master/cocoadis_graph.png!
