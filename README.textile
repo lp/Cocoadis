@@ -1,4 +1,4 @@
-pre.  ___  _____  ___  _____    __    ____  ____  ___ 
+pre.      ___  _____  ___  _____    __    ____  ____  ___ 
      / __)(  _  )/ __)(  _  )  /__\  (  _ \(_  _)/ __)
     ( (__  )(_)(( (__  )(_)(  /(__)\  )(_) )_)(_ \__ \
      \___)(_____)\___)(_____)(__)(__)(____/(____)(___/
@@ -44,4 +44,4 @@ h5. wipe the whole persistence DANGER!!!
 
 bc. [[Cocoadis persistence] clearPersistence]
 
-!https://github.com/lp/Cocoadis/blob/master/cocoadis_graph.png!
+!cocoadis_graph.png!
