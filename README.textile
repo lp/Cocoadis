@@ -12,16 +12,19 @@ p. Cocoadis:
 * efficient in memory cache.
 
 h4. init:
+
 bc. [[Cocoadis persistence] setBasePath:@"tmp"];
 NSMutableArray * persistedArray = [[NSMutableArray alloc] initWithPersistence:@"myArray"];
 
 h4. saving:
+
 bc. // per instance
 [persistedArray saveToPersistence];
 // whole bunch
 [[Cocoadis persistence] saveAll];
 
 h4. managing:
+
 bc. // releasing unused memory from the cache
 [[Cocoadis persistence] cleanCache];
 // automatic releasing
