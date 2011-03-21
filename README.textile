@@ -1,4 +1,4 @@
-h2. Simple Data Persistence for iOS and MacOSX
+h1. Simple Data Persistence for iOS and MacOSX
 
 !https://github.com/lp/Cocoadis/raw/master/cocoadis_graph.png!
 
