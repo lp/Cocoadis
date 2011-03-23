@@ -41,6 +41,41 @@ h5. wipe the whole persistence DANGER!!!
 
 bc. [[Cocoadis persistence] clearPersistence]
 
+h3. MacRuby:
+
+bc. >> framework "Cocoadis"
+=> true
+>> cdis = NSMutableArray.alloc.initWithPersistence "myMacIRB"
+=> []
+
+h5. ruby style
+
+bc.>> cdis << "Hey"
+=> ["Hey"]
+>> cdis << "MacRuby"
+=> ["Hey", "MacRuby"]
+
+h5. introspect it
+
+bc. >> Cocoadis.persistence.dbCache.inspect
+=> "{\"myMacIRB\"=>[\"Hey\", \"MacRuby\"]}"     # Cache contains our message
+
+h5. save it
+bc.>> cdis.saveToPersistence
+=> ["Hey", "MacRuby"]
+
+h5. clear cache
+
+>> Cocoadis.persistence.flushCache
+=> #<Cocoadis:0x20000d5e0>
+>> Cocoadis.persistence.dbCache.inspect
+=> "{}"     # Cache is Empty
+
+h5. get it back from persistence
+
+>> recdis = NSMutableArray.alloc.initWithPersistence "myMacIRB"
+=> ["Hey", "MacRuby"]   # Cocoadis persistence kept it!
+
 h3. Downloads:
 * "Cocoadis MacOSX 10.6 Framework":https://github.com/downloads/lp/Cocoadis/Cocoadis_OSX_1_0.zip
 * "Cocoadis iOS 4.2 Static Library":https://github.com/downloads/lp/Cocoadis/Cocoadis_iOS_1_0.zip
