@@ -25,27 +25,28 @@
 // 
 
 #import <Foundation/Foundation.h>
-#import "NSObject+Cocoadis.h"
+#import "COObject.h"
 
 @interface Cocoadis : NSObject {
 	NSString * basePath;
 	
-	NSMutableDictionary * dbCache;
+	id dbCache;
 	
 	NSNotification * cleanNotif;
 	NSUInteger cleanIter;
 }
 
 @property(retain, readwrite) NSString * basePath;
-@property(retain, readonly) NSMutableDictionary * dbCache;
 @property(assign, readonly) NSUInteger cleanIter;
 
 + (id)persistence;
 
+-(NSDictionary*)dbCache;
+
 // db management methods
 - (id)persist:(id)obj key:(NSString*)key;
 - (void)saveAll;
-- (void)saveMember:(id)member;
+- (void)saveMember:(NSString*)name;
 - (void)flushCache;
 - (void)cleanCache;
 - (void)clearPersistence;

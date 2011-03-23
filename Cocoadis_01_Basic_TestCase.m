@@ -58,64 +58,64 @@
 }
 
 - (void)test_02_init_array {
-	NSMutableArray * array = [[NSMutableArray alloc] initWithPersistence:@"mArray"];
+	id array = [[COArray alloc] initWithPersistence:@"mArray"];
 	STAssertNotNil(array, @"array: returned nil");
-	STAssertTrue([array isKindOfClass:[NSMutableArray class]],
-				 @"initialized array is not of NSMutableArray class, it is: %@",
+	STAssertTrue([array isKindOfClass:[COArray class]],
+				 @"initialized array is not of COArray class, it is: %@",
 				 [[array class] description]);
 	[array release];
 }
 
 - (void)test_03_init_dictionary {
-	id dict = [[NSMutableDictionary alloc] initWithPersistence:@"mDict"];
+	id dict = [[CODictionary alloc] initWithPersistence:@"mDict"];
 	STAssertNotNil(dict, @"dictionary returned nil");
-	STAssertTrue([dict isKindOfClass:[NSMutableDictionary class]],
-				 @"initialized dictionary is not of NSMutableDictionary class, it is: %@",
+	STAssertTrue([dict isKindOfClass:[CODictionary class]],
+				 @"initialized dictionary is not of CODictionary class, it is: %@",
 				 [[dict class] description]);
 	[dict release];
 }
 
 - (void)test_04_init_string {
-	id string = [[NSMutableString alloc] initWithPersistence:@"mString"];
+	id string = [[COString alloc] initWithPersistence:@"mString"];
 	STAssertNotNil(string, @"string returned nil");
-	STAssertTrue([string isKindOfClass:[NSMutableString class]],
-				 @"initialized string is not of NSMutableString class, it is: %@",
+	STAssertTrue([string isKindOfClass:[COString class]],
+				 @"initialized string is not of COString class, it is: %@",
 				 [[string class] description]);
 	[string release];
 }
 
 - (void)test_05_init_set {
-	id set = [[NSMutableSet alloc] initWithPersistence:@"mSet"];
+	id set = [[COSet alloc] initWithPersistence:@"mSet"];
 	STAssertNotNil(set, @"string returned nil");
-	STAssertTrue([set isKindOfClass:[NSMutableSet class]],
-				 @"initialized set is not of NSMutableSet class, it is: %@",
+	STAssertTrue([set isKindOfClass:[COSet class]],
+				 @"initialized set is not of COSet class, it is: %@",
 				 [[set class] description]);
 	[set release];
 }
 
 - (void)test_06_objectWithPersistence {
-	id array = [NSMutableArray objectWithPersistence:@"mArray"];
+	id array = [COArray objectWithPersistence:@"mArray"];
 	STAssertNotNil(array, @"array: returned nil");
-	STAssertTrue([array isKindOfClass:[NSMutableArray class]],
-				 @"initialized array is not of NSMutableArray class, it is: %@",
+	STAssertTrue([array isKindOfClass:[COArray class]],
+				 @"initialized array is not of COArray class, it is: %@",
 				 [[array class] description]);
 	
-	id dict = [NSMutableDictionary objectWithPersistence:@"mDict"];
+	id dict = [CODictionary objectWithPersistence:@"mDict"];
 	STAssertNotNil(dict, @"dictionary returned nil");
-	STAssertTrue([dict isKindOfClass:[NSMutableDictionary class]],
-				 @"initialized dictionary is not of NSMutableDictionary class, it is: %@",
+	STAssertTrue([dict isKindOfClass:[CODictionary class]],
+				 @"initialized dictionary is not of CODictionary class, it is: %@",
 				 [[dict class] description]);
 	
-	id string = [NSMutableString objectWithPersistence:@"mString"];
+	id string = [COString objectWithPersistence:@"mString"];
 	STAssertNotNil(string, @"string returned nil");
-	STAssertTrue([string isKindOfClass:[NSMutableString class]],
-				 @"initialized string is not of NSMutableString class, it is: %@",
+	STAssertTrue([string isKindOfClass:[COString class]],
+				 @"initialized string is not of COString class, it is: %@",
 				 [[string class] description]);
 	
-	id set = [NSMutableSet objectWithPersistence:@"mSet"];
+	id set = [COSet objectWithPersistence:@"mSet"];
 	STAssertNotNil(set, @"string returned nil");
-	STAssertTrue([set isKindOfClass:[NSMutableSet class]],
-				 @"initialized set is not of NSMutableSet class, it is: %@",
+	STAssertTrue([set isKindOfClass:[COSet class]],
+				 @"initialized set is not of COSet class, it is: %@",
 				 [[set class] description]);
 }
 

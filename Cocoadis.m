@@ -26,6 +26,14 @@
 
 #import "Cocoadis.h"
 
+#ifdef IOS
+#import "COHelper_iOS.h"
+#endif
+
+#ifndef IOS
+#import "COHelper_OSX.h"
+#endif
+
 static Cocoadis * CDISPersistence;
 
 // Private methods declaration
@@ -40,7 +48,6 @@ static Cocoadis * CDISPersistence;
 
 @implementation Cocoadis
 @synthesize basePath;
-@synthesize dbCache;
 @synthesize cleanIter;
 
 + (id)persistence
@@ -56,7 +63,7 @@ static Cocoadis * CDISPersistence;
 	}
 	else if(self = CDISPersistence = [[super init] retain])
 	{
-		dbCache = [[NSMutableDictionary alloc] init];
+		dbCache = [COHelper dbCache];
 		basePath = @"/tmp";
 		[basePath retain];
 		cleanNotif = [NSNotification notificationWithName:@"cleanNotif" object:nil];
@@ -71,6 +78,15 @@ static Cocoadis * CDISPersistence;
 	[dbCache release];
 	[basePath release];
 	[super dealloc];
+}
+
+-(NSDictionary*)dbCache
+{
+	if ([dbCache isKindOfClass:[NSMutableDictionary class]]) {
+		return dbCache;
+	} else {
+		return [dbCache dictionaryRepresentation];
+	}
 }
 
 - (id)persist:(id)obj key:(NSString*)key
@@ -135,43 +151,46 @@ static Cocoadis * CDISPersistence;
 
 - (void)saveAll
 {	
-	NSEnumerator * dbObjs = [dbCache objectEnumerator];
-	id obj;
-	while (obj = [dbObjs nextObject]) {
-		[self saveMember:obj];
+	NSEnumerator * dbKeys = [dbCache keyEnumerator];
+	NSString * key;
+	while (key = [dbKeys nextObject]) {
+		[self saveMember:key];
 	}
 }
 
-- (void)saveMember:(id)member
+- (void)saveMember:(NSString*)name
 {
-	NSString * name = [dbCache keyForObject:member];
 	NSString * filePath = [self filePathWithName:name];
 	[NSThread detachNewThreadSelector:@selector(persistMember:) toTarget:self withObject:
-	 [NSArray arrayWithObjects:filePath,[member copy],nil]];
+	 [NSArray arrayWithObjects:filePath,[[dbCache objectForKey:name] copy],nil]];
 }
 
 - (void)flushCache
 {
 	[dbCache release];
-	dbCache = [[NSMutableDictionary alloc] init];
+	dbCache = [COHelper dbCache];
 }
 
 - (void)cleanCache {
-	if ([dbCache count] > 0) {
-		NSMutableArray * dirtyKeys = [[NSMutableArray alloc] init];
-		for (NSString * name in dbCache) {
-			id cacheObj = [dbCache objectForKey:name];
-			if ([cacheObj retainCount] == 1) {
-				[dirtyKeys addObject:name];
+	if ([COHelper gc]) {
+		[COHelper runGC];
+	} else {
+		if ([dbCache count] > 0) {
+			NSMutableArray * dirtyKeys = [[NSMutableArray alloc] init];
+			for (NSString * name in dbCache) {
+				id cacheObj = [dbCache objectForKey:name];
+				if ([cacheObj retainCount] == 1) {
+					[dirtyKeys addObject:name];
+				}
 			}
-		}
-		
-		if ([dirtyKeys count] > 0) {
-			for (NSString * name in dirtyKeys) {
-				[dbCache removeObjectForKey:name];
+			
+			if ([dirtyKeys count] > 0) {
+				for (NSString * name in dirtyKeys) {
+					[dbCache removeObjectForKey:name];
+				}
 			}
+			[dirtyKeys release];
 		}
-		[dirtyKeys release];
 	}
 	cleanIter++;
 }
@@ -183,13 +202,17 @@ static Cocoadis * CDISPersistence;
 
 - (void)startAutoClean
 {	
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cleanNotif:) name:@"cleanNotif" object:nil];
-	[[NSNotificationQueue defaultQueue] enqueueNotification:cleanNotif postingStyle:NSPostNow];
+	if (! [COHelper gc]) {
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cleanNotif:) name:@"cleanNotif" object:nil];
+		[[NSNotificationQueue defaultQueue] enqueueNotification:cleanNotif postingStyle:NSPostNow];
+	}
 }
 
 - (void)stopAutoClean
 {
-	[[NSNotificationCenter defaultCenter] removeObserver:self name:@"cleanNotif" object:nil];
+	if (! [COHelper gc]) {
+		[[NSNotificationCenter defaultCenter] removeObserver:self name:@"cleanNotif" object:nil];
+	}
 }
 
 - (void)cleanNotif:(NSNotification *)nc

@@ -1,8 +1,8 @@
 //
-//  NSObject+Cocoadis.h
+//  COObject.h
 //  Cocoadis
 //
-//  Created by Louis-Philippe on 11-03-21.
+//  Created by Louis-Philippe on 11-03-23.
 //  Copyright (c) 2010 Louis-Philippe Perron.
 // 
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -24,18 +24,44 @@
 //  THE SOFTWARE.
 // 
 
+
 #import <Foundation/Foundation.h>
 
-@interface NSObject (Cocoadis)
+@interface COObject : NSObject {
+	id obj;
+	NSString * name;
+}
 
--(id)initWithPersistence:(NSString*)key;
+@property(retain, readwrite) id obj;
+@property(retain, readwrite) NSString * name;
+
 +(id)objectWithPersistence:(NSString*)key;
--(void)saveToPersistence;
+-(id)initWithPersistence:(NSString *)key;
+
+-(void)persist;
 
 @end
 
-@interface NSMutableDictionary (Cocoadis)
+@interface COArray : COObject {
+	
+}
 
--(NSString*)keyForObject:(id)obj;
+@end
+
+@interface CODictionary : COObject {
+	
+}
+
+@end
+
+@interface COString : COObject {
+	
+}
+
+@end
+
+@interface COSet : COObject {
+	
+}
 
 @end
