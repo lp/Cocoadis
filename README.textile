@@ -45,7 +45,7 @@ h3. MacRuby:
 
 bc. >> framework "Cocoadis"
 => true
->> cdis = NSMutableArray.alloc.initWithPersistence "myMacIRB"
+>> cdis = NSMutableArray.alloc.initWithPersistence :myMacIRB
 => []
 
 h5. ruby style
@@ -74,7 +74,7 @@ bc. >> Cocoadis.persistence.flushCache
 
 h5. get it back from persistence
 
-bc. >> recdis = NSMutableArray.alloc.initWithPersistence "myMacIRB"
+bc. >> recdis = NSMutableArray.alloc.initWithPersistence :myMacIRB
 => ["Hey", "MacRuby"]   # Cocoadis persistence kept it!
 
 h3. Downloads:
