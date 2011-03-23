@@ -29,6 +29,7 @@
 @interface NSObject (Cocoadis)
 
 -(id)initWithPersistence:(NSString*)key;
++(id)objectWithPersistence:(NSString*)key;
 -(void)saveToPersistence;
 
 @end

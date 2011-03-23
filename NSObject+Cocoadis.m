@@ -46,6 +46,13 @@
 	return nil;
 }
 
++(id)objectWithPersistence:(NSString*)key
+{
+	id obj = [[self alloc] initWithPersistence:key];
+	[obj autorelease];
+	return obj;
+}
+
 -(void)saveToPersistence
 {
 	if ([self isKindOfClass:[NSMutableArray class]] ||

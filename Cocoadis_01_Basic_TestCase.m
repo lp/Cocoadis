@@ -93,4 +93,30 @@
 	[set release];
 }
 
+- (void)test_06_objectWithPersistence {
+	id array = [NSMutableArray objectWithPersistence:@"mArray"];
+	STAssertNotNil(array, @"array: returned nil");
+	STAssertTrue([array isKindOfClass:[NSMutableArray class]],
+				 @"initialized array is not of NSMutableArray class, it is: %@",
+				 [[array class] description]);
+	
+	id dict = [NSMutableDictionary objectWithPersistence:@"mDict"];
+	STAssertNotNil(dict, @"dictionary returned nil");
+	STAssertTrue([dict isKindOfClass:[NSMutableDictionary class]],
+				 @"initialized dictionary is not of NSMutableDictionary class, it is: %@",
+				 [[dict class] description]);
+	
+	id string = [NSMutableString objectWithPersistence:@"mString"];
+	STAssertNotNil(string, @"string returned nil");
+	STAssertTrue([string isKindOfClass:[NSMutableString class]],
+				 @"initialized string is not of NSMutableString class, it is: %@",
+				 [[string class] description]);
+	
+	id set = [NSMutableSet objectWithPersistence:@"mSet"];
+	STAssertNotNil(set, @"string returned nil");
+	STAssertTrue([set isKindOfClass:[NSMutableSet class]],
+				 @"initialized set is not of NSMutableSet class, it is: %@",
+				 [[set class] description]);
+}
+
 @end
