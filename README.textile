@@ -50,7 +50,7 @@ bc. >> framework "Cocoadis"
 
 h5. ruby style
 
-bc.>> cdis << "Hey"
+bc. >> cdis << "Hey"
 => ["Hey"]
 >> cdis << "MacRuby"
 => ["Hey", "MacRuby"]
@@ -61,19 +61,20 @@ bc. >> Cocoadis.persistence.dbCache.inspect
 => "{\"myMacIRB\"=>[\"Hey\", \"MacRuby\"]}"     # Cache contains our message
 
 h5. save it
-bc.>> cdis.saveToPersistence
+
+bc. >> cdis.saveToPersistence
 => ["Hey", "MacRuby"]
 
 h5. clear cache
 
->> Cocoadis.persistence.flushCache
+bc. >> Cocoadis.persistence.flushCache
 => #<Cocoadis:0x20000d5e0>
 >> Cocoadis.persistence.dbCache.inspect
 => "{}"     # Cache is Empty
 
 h5. get it back from persistence
 
->> recdis = NSMutableArray.alloc.initWithPersistence "myMacIRB"
+bc. >> recdis = NSMutableArray.alloc.initWithPersistence "myMacIRB"
 => ["Hey", "MacRuby"]   # Cocoadis persistence kept it!
 
 h3. Downloads:
