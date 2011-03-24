@@ -26,16 +26,19 @@
 
 
 #import <Foundation/Foundation.h>
+#import "Cocoadis.h"
 
 @interface COObject : NSObject {
 	id obj;
 	NSString * name;
+	id persistence;
 }
 
 @property(retain, readwrite) id obj;
 @property(retain, readwrite) NSString * name;
 
--(id)initWithPersistence:(NSString *)key;
+-(id)initAsKey:(NSString *)key;
+-(id)initAsKey:(NSString *)key persistence:(id)pers;
 -(void)persist;
 
 @end

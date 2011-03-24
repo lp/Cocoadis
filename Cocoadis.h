@@ -41,6 +41,8 @@
 @property(assign, readonly) NSUInteger cleanIter;
 
 + (id)persistence;
+- (id)initWithPath:(NSString*)path;
+- (id)initGlobal;
 
 -(NSDictionary*)dbCache;
 

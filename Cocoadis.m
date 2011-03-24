@@ -52,23 +52,41 @@ static Cocoadis * CDISPersistence;
 
 + (id)persistence
 {
-	return CDISPersistence ?: [[self new] autorelease];
+	return CDISPersistence ?: [[[self alloc] initGlobal] autorelease];
 }
 
 - (id)init
+{
+	self = [super init];
+	if (self != nil) {
+		dbCache = [COHelper dbCache];
+		cleanNotif = [NSNotification notificationWithName:@"cleanNotif" object:nil];
+		[cleanNotif retain];
+		cleanIter = 0;
+	}	
+	return self;
+}
+
+- (id)initWithPath:(NSString*)path
+{
+	self = [self init];
+	if (self) {
+		basePath = path;
+		[basePath retain];
+	}
+	return self;
+}
+
+- (id)initGlobal
 {
 	if(CDISPersistence)
 	{
 		[self release];
 	}
-	else if(self = CDISPersistence = [[super init] retain])
+	else if(self = CDISPersistence = [[self init] retain])
 	{
-		dbCache = [COHelper dbCache];
 		basePath = @"/tmp";
 		[basePath retain];
-		cleanNotif = [NSNotification notificationWithName:@"cleanNotif" object:nil];
-		[cleanNotif retain];
-		cleanIter = 0;
 	}
 	return CDISPersistence;
 }

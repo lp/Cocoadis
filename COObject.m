@@ -35,22 +35,40 @@
 - (void)dealloc {
 	[obj release];
 	[name release];
+	[persistence release];
 	[super dealloc];
 }
 
--(id)initWithPersistence:(NSString *)key
+-(id)initAsKey:(NSString *)key
+{
+	return [self initAsKey:key persistence:nil];
+}
+
+-(id)initAsKey:(NSString *)key persistence:(id)pers
 {
 	self = [super init];
 	if (self) {
-		self.name = key;
+		name = key;
+		[name retain];
+		if (pers) {
+			persistence = pers;
+			[persistence retain];
+		} else {
+			persistence = [Cocoadis persistence];
+			[persistence retain];
+		}
+
 		if ([self isMemberOfClass:[COArray class]]) {
-			obj = [[Cocoadis persistence] persist:[[NSMutableArray alloc] init] key:key];
+			obj = [persistence persist:[[NSMutableArray alloc] init] key:key];
 		} else if ([self isMemberOfClass:[CODictionary class]]) {
-			obj = [[Cocoadis persistence] persist:[[NSMutableDictionary alloc] init] key:key];
+			obj = [persistence persist:[[NSMutableDictionary alloc] init] key:key];
 		} else if ([self isMemberOfClass:[COString class]]) {
-			obj = [[Cocoadis persistence] persist:[[NSMutableString alloc] init] key:key];
+			obj = [persistence persist:[[NSMutableString alloc] init] key:key];
 		} else if ([self isMemberOfClass:[COSet class]]) {
-			obj = [[Cocoadis persistence] persist:[[NSMutableSet alloc] init] key:key];
+			obj = [persistence persist:[[NSMutableSet alloc] init] key:key];
+		} else {
+			[self doesNotRecognizeSelector:@selector(initAsKey:persistence:)];
+			return nil;
 		}
 	}
 	return self;
@@ -58,7 +76,7 @@
 
 -(void)persist
 {
-	[[Cocoadis persistence] saveMember:obj];
+	[persistence saveMember:obj];
 }
 
 // forwarding to obj
@@ -69,7 +87,7 @@
 
 - (BOOL)respondsToSelector:(SEL)aSelector {
 	if (aSelector == @selector(persist) ||
-		aSelector == @selector(initWithPersistence:)
+		aSelector == @selector(initAsKey:)
 		) {
 		return YES;
 	}

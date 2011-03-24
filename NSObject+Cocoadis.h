@@ -28,8 +28,8 @@
 
 @interface NSObject (Cocoadis)
 
--(id)initWithPersistence:(NSString*)key;
-+(id)objectWithPersistence:(NSString*)key;
+-(id)initAsKey:(NSString*)key;
++(id)objectAsKey:(NSString*)key;
 -(void)persist;
 
 -(id)persistence:(NSString*)key;

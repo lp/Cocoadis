@@ -30,7 +30,7 @@
 
 @implementation NSObject (Cocoadis)
 
--(id)initWithPersistence:(NSString*)key
+-(id)initAsKey:(NSString*)key
 {
 	self = [self init];
 	if (self) {
@@ -47,9 +47,9 @@
 	return nil;
 }
 
-+(id)objectWithPersistence:(NSString*)key
++(id)objectAsKey:(NSString*)key
 {
-	id obj = [[self alloc] initWithPersistence:key];
+	id obj = [[self alloc] initAsKey:key];
 	[obj autorelease];
 	return obj;
 }
@@ -84,11 +84,11 @@
 -(BOOL)isEmpty
 {
 	if ([self isKindOfClass:[NSString class]]) {
-		if ([self length] == 0) {
+		if ([self performSelector:@selector(length)] == 0) {
 			return YES;
 		}
 	} else if ([self respondsToSelector:@selector(count)]) {
-		if ([self count] == 0) {
+		if ([self performSelector:@selector(count)] == 0) {
 			return YES;
 		}
 	} else {

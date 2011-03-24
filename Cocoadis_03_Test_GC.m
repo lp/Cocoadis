@@ -58,10 +58,10 @@
 	if ([COHelper gc]) {
 		STAssertTrue([[[Cocoadis persistence] dbCache] count] == 0, @"the db cache doesn't start clean");
 		
-		id mArray = [[COArray alloc] initWithPersistence:@"mArrayGC"];
-		id mDict = [[CODictionary alloc] initWithPersistence:@"mDict"];
-		id mString = [[COString alloc] initWithPersistence:@"mString"];
-		id mSet = [[COSet alloc] initWithPersistence:@"mSet"];
+		id mArray = [[COArray alloc] initAsKey:@"mArrayGC"];
+		id mDict = [[CODictionary alloc] initAsKey:@"mDict"];
+		id mString = [[COString alloc] initAsKey:@"mString"];
+		id mSet = [[COSet alloc] initAsKey:@"mSet"];
 		
 		STAssertTrue([[[Cocoadis persistence] dbCache] count] == 4, @"the db cache didn't keep the objects");
 		
@@ -76,8 +76,8 @@
 	if ([COHelper gc]) {
 		[[Cocoadis persistence] cleanCache];
 		[NSThread sleepForTimeInterval:5];
-		id mArray2 = [[COArray alloc] initWithPersistence:@"mArrayGC"];
-		STAssertFalse([mArray2 containsObject:@"gc"], @"saveToPersistence didn't save object");
+		id mArray2 = [[COArray alloc] initAsKey:@"mArrayGC"];
+		STAssertFalse([mArray2 containsObject:@"gc"], @"cache was not clean object");
 	}
 }
 
@@ -86,10 +86,10 @@
 		[[Cocoadis persistence] flushCache];
 		STAssertTrue([[[Cocoadis persistence] dbCache] count] == 0, @"the db cache doesn't start clean");
 		
-		id mArray = [[COArray alloc] initWithPersistence:@"mArrayGC"];
-		id mDict = [[CODictionary alloc] initWithPersistence:@"mDict"];
-		id mString = [[COString alloc] initWithPersistence:@"mString"];
-		id mSet = [[COSet alloc] initWithPersistence:@"mSet"];
+		id mArray = [[COArray alloc] initAsKey:@"mArrayGC"];
+		id mDict = [[CODictionary alloc] initAsKey:@"mDict"];
+		id mString = [[COString alloc] initAsKey:@"mString"];
+		id mSet = [[COSet alloc] initAsKey:@"mSet"];
 		
 		STAssertTrue([[[Cocoadis persistence] dbCache] count] == 4, @"the db cache didn't keep the objects");
 		
@@ -106,7 +106,7 @@
 	if ([COHelper gc]) {
 		[[Cocoadis persistence] cleanCache];
 		[NSThread sleepForTimeInterval:5];
-		id mArray2 = [[COArray alloc] initWithPersistence:@"mArrayGC"];
+		id mArray2 = [[COArray alloc] initAsKey:@"mArrayGC"];
 		STAssertTrue([mArray2 containsObject:@"gc"], @"saveToPersistence didn't save object");
 	}
 }
