@@ -46,23 +46,23 @@
 @interface COArray : COObject {
 	
 }
-
++(id)arrayAsKey:(NSString*)key;
 @end
 
 @interface CODictionary : COObject {
 	
 }
-
++(id)dictionaryAsKey:(NSString*)key;
 @end
 
 @interface COString : COObject {
 	
 }
-
++(id)stringAsKey:(NSString*)key;
 @end
 
 @interface COSet : COObject {
 	
 }
-
++(id)setAsKey:(NSString*)key;
 @end

@@ -109,59 +109,54 @@ static Cocoadis * CDISPersistence;
 
 - (id)persist:(id)obj key:(NSString*)key
 {
-	if ([obj isEmpty]) {
-		id persisted = [dbCache objectForKey:key];
-		if (persisted && [persisted isKindOfClass:[obj class]]) {
-			if ([obj isKindOfClass:[NSMutableArray class]]) {
-				[obj addObjectsFromArray:persisted];
-			} else if ([obj isKindOfClass:[NSMutableDictionary class]]) {
-				[obj addEntriesFromDictionary:persisted];
-			} else if ([obj isKindOfClass:[NSMutableString class]]) {
-				[obj setString:persisted];
-			} else if ([obj isKindOfClass:[NSMutableSet class]]) {
-				[obj unionSet:persisted];
-			}
-		} else {
-			NSString * filePath = [self filePathWithName:key];
-			if ([[NSFileManager defaultManager] fileExistsAtPath:filePath]) {
-				NSArray * loadArray = [[NSArray alloc] initWithContentsOfFile:filePath];
-				if (loadArray) {
-					if ([[loadArray objectAtIndex:0] isEqualToString:@"__NSArrayM"] ||
-						[[loadArray objectAtIndex:0] isEqualToString:@"NSCFArray"] ||
-						[[loadArray objectAtIndex:0] isEqualToString:@"__NSArrayI"]) {
-						persisted = [[NSArray alloc] initWithArray:[loadArray objectAtIndex:1]];
-						if ([obj isKindOfClass:[NSMutableArray class]]) {
-							[obj addObjectsFromArray:persisted];
-						}
-						[persisted release];
-					} else if ([[loadArray objectAtIndex:0] isEqualToString:@"__NSCFDictionary"] ||
-							   [[loadArray objectAtIndex:0] isEqualToString:@"NSCFDictionary"]) {
-						persisted = [[NSDictionary alloc] initWithDictionary:[loadArray objectAtIndex:1]];
-						if ([obj isKindOfClass:[NSMutableDictionary class]]) {
-							[obj addEntriesFromDictionary:persisted];
-						}
-						[persisted release];
-					} else if ([[loadArray objectAtIndex:0] isEqualToString:@"NSCFString"]) {
-						persisted = [[NSString alloc] initWithString:[loadArray objectAtIndex:1]];
-						if ([obj isKindOfClass:[NSMutableString class]]) {
-							[obj setString:persisted];
-						}
-						[persisted release];
-					} else if ([[loadArray objectAtIndex:0] isEqualToString:@"__NSCFSet"] ||
-							   [[loadArray objectAtIndex:0] isEqualToString:@"NSCFSet"]
-							   ) {
-						persisted = [[NSSet alloc] initWithArray:[loadArray objectAtIndex:1]];
-						if ([obj isKindOfClass:[NSMutableSet class]]) {
-							[obj unionSet:persisted];
-						}
-						[persisted release];
+	id persisted = [dbCache objectForKey:key];
+	if (persisted && [persisted isKindOfClass:[obj class]]) {
+		[obj release];
+		return [persisted retain];
+	} else {
+		NSString * filePath = [self filePathWithName:key];
+		if ([[NSFileManager defaultManager] fileExistsAtPath:filePath]) {
+			NSArray * loadArray = [[NSArray alloc] initWithContentsOfFile:filePath];
+			if (loadArray) {
+				if ([[loadArray objectAtIndex:0] isEqualToString:@"__NSArrayM"] ||
+					[[loadArray objectAtIndex:0] isEqualToString:@"NSCFArray"] ||
+					[[loadArray objectAtIndex:0] isEqualToString:@"__NSArrayI"]) {
+					persisted = [[NSArray alloc] initWithArray:[loadArray objectAtIndex:1]];
+					if ([obj isKindOfClass:[NSMutableArray class]]) {
+						[obj addObjectsFromArray:persisted];
 					}
+					[persisted release];
+				} else if ([[loadArray objectAtIndex:0] isEqualToString:@"__NSCFDictionary"] ||
+						   [[loadArray objectAtIndex:0] isEqualToString:@"NSCFDictionary"]) {
+					persisted = [[NSDictionary alloc] initWithDictionary:[loadArray objectAtIndex:1]];
+					if ([obj isKindOfClass:[NSMutableDictionary class]]) {
+						[obj addEntriesFromDictionary:persisted];
+					}
+					[persisted release];
+				} else if ([[loadArray objectAtIndex:0] isEqualToString:@"NSCFString"]) {
+					persisted = [[NSString alloc] initWithString:[loadArray objectAtIndex:1]];
+					if ([obj isKindOfClass:[NSMutableString class]]) {
+						[obj setString:persisted];
+					}
+					[persisted release];
+				} else if ([[loadArray objectAtIndex:0] isEqualToString:@"__NSCFSet"] ||
+						   [[loadArray objectAtIndex:0] isEqualToString:@"NSCFSet"]
+						   ) {
+					persisted = [[NSSet alloc] initWithArray:[loadArray objectAtIndex:1]];
+					if ([obj isKindOfClass:[NSMutableSet class]]) {
+						[obj unionSet:persisted];
+					}
+					[persisted release];
 				}
-				[loadArray release];
 			}
+			[loadArray release];
 		}
 	}
-	
+	return [self persistExisting:obj key:key];
+}
+
+- (id)persistExisting:(id)obj key:(NSString*)key
+{
 	if (obj) {
 		[dbCache setObject:obj forKey:key];
 		return obj;

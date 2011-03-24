@@ -131,25 +131,25 @@
 
 
 - (void)test_06_objectWithPersistence {
-	id array = [NSMutableArray objectAsKey:@"mArray"];
+	id array = [NSMutableArray arrayAsKey:@"mArray"];
 	STAssertNotNil(array, @"array: returned nil");
 	STAssertTrue([array isKindOfClass:[NSMutableArray class]],
 				 @"initialized array is not of COArray class, it is: %@",
 				 [[array class] description]);
 	
-	id dict = [NSMutableDictionary objectAsKey:@"mDict"];
+	id dict = [NSMutableDictionary dictionaryAsKey:@"mDict"];
 	STAssertNotNil(dict, @"dictionary returned nil");
 	STAssertTrue([dict isKindOfClass:[NSMutableDictionary class]],
 				 @"initialized dictionary is not of CODictionary class, it is: %@",
 				 [[dict class] description]);
 	
-	id string = [NSMutableString objectAsKey:@"mString"];
+	id string = [NSMutableString stringAsKey:@"mString"];
 	STAssertNotNil(string, @"string returned nil");
 	STAssertTrue([string isKindOfClass:[NSMutableString class]],
 				 @"initialized string is not of COString class, it is: %@",
 				 [[string class] description]);
 	
-	id set = [NSMutableSet objectAsKey:@"mSet"];
+	id set = [NSMutableSet setAsKey:@"mSet"];
 	STAssertNotNil(set, @"string returned nil");
 	STAssertTrue([set isKindOfClass:[NSMutableSet class]],
 				 @"initialized set is not of COSet class, it is: %@",
@@ -157,25 +157,25 @@
 }
 
 - (void)test_06_coobjectWithPersistence {
-	id array = [COArray objectAsKey:@"mArray"];
+	id array = [COArray arrayAsKey:@"mArray"];
 	STAssertNotNil(array, @"array: returned nil");
 	STAssertTrue([array isKindOfClass:[COArray class]],
 				 @"initialized array is not of COArray class, it is: %@",
 				 [[array class] description]);
 	
-	id dict = [CODictionary objectAsKey:@"mDict"];
+	id dict = [CODictionary dictionaryAsKey:@"mDict"];
 	STAssertNotNil(dict, @"dictionary returned nil");
 	STAssertTrue([dict isKindOfClass:[CODictionary class]],
 				 @"initialized dictionary is not of CODictionary class, it is: %@",
 				 [[dict class] description]);
 	
-	id string = [COString objectAsKey:@"mString"];
+	id string = [COString stringAsKey:@"mString"];
 	STAssertNotNil(string, @"string returned nil");
 	STAssertTrue([string isKindOfClass:[COString class]],
 				 @"initialized string is not of COString class, it is: %@",
 				 [[string class] description]);
 	
-	id set = [COSet objectAsKey:@"mSet"];
+	id set = [COSet setAsKey:@"mSet"];
 	STAssertNotNil(set, @"string returned nil");
 	STAssertTrue([set isKindOfClass:[COSet class]],
 				 @"initialized set is not of COSet class, it is: %@",

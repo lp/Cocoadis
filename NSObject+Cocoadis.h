@@ -34,14 +34,32 @@
 
 -(id)persistence:(NSString*)key;
 
--(BOOL)isEmpty;
+@end
+
+@interface NSMutableArray (Cocoadis)
+
++(id)arrayAsKey:(NSString*)key;
 
 @end
 
 @interface NSMutableDictionary (Cocoadis)
 
++(id)dictionaryAsKey:(NSString*)key;
+
 -(NSString*)keyForObject:(id)obj;
 -(BOOL)containsObject:(id)obj;
+
+@end
+
+@interface NSMutableString (Cocoadis)
+
++(id)stringAsKey:(NSString*)key;
+
+@end
+
+@interface NSMutableSet (Cocoadis)
+
++(id)setAsKey:(NSString*)key;
 
 @end
 

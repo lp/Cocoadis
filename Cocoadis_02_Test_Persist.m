@@ -322,11 +322,11 @@
 }
 
 - (void) test_11_Array_autorelease {
-	id mArray = [NSMutableArray objectAsKey:@"mArray"];
+	id mArray = [NSMutableArray arrayAsKey:@"mArray"];
 	[mArray addObject:@"a"];
 	STAssertTrue([[mArray objectAtIndex:0] isEqualToString:@"a"], @"is not an array");
 	
-	id mArray2 = [NSMutableArray objectAsKey:@"mArray"];
+	id mArray2 = [NSMutableArray arrayAsKey:@"mArray"];
 	STAssertNotNil(mArray2, @"array: returned nil");
 	STAssertTrue([[mArray2 objectAtIndex:0] isEqualToString:@"a"], @"is not an array");
 	
@@ -334,17 +334,17 @@
 	[[Cocoadis persistence] flushCache];
 	[NSThread sleepForTimeInterval:1];
 	
-	id mArray3 = [NSMutableArray objectAsKey:@"mArray"];
+	id mArray3 = [NSMutableArray arrayAsKey:@"mArray"];
 	STAssertNotNil(mArray3, @"array: returned nil");
 	STAssertTrue([[mArray3 objectAtIndex:0] isEqualToString:@"a"], @"is not an array");
 }
 
 - (void) test_11_coArray_autorelease {
-	id mArray = [COArray objectAsKey:@"mArray"];
+	id mArray = [COArray arrayAsKey:@"mArray"];
 	[mArray addObject:@"a"];
 	STAssertTrue([[mArray objectAtIndex:0] isEqualToString:@"a"], @"is not an array");
 	
-	id mArray2 = [COArray objectAsKey:@"mArray"];
+	id mArray2 = [COArray arrayAsKey:@"mArray"];
 	STAssertNotNil(mArray2, @"array: returned nil");
 	STAssertTrue([[mArray2 objectAtIndex:0] isEqualToString:@"a"], @"is not an array");
 	
@@ -352,18 +352,18 @@
 	[[Cocoadis persistence] flushCache];
 	[NSThread sleepForTimeInterval:1];
 	
-	id mArray3 = [COArray objectAsKey:@"mArray"];
+	id mArray3 = [COArray arrayAsKey:@"mArray"];
 	STAssertNotNil(mArray3, @"array: returned nil");
 	STAssertTrue([[mArray3 objectAtIndex:0] isEqualToString:@"a"], @"is not an array");
 }
 
 
 - (void)test_12_Dictionary_autorelease {
-	id mDict = [NSMutableDictionary objectAsKey:@"mDict"];
+	id mDict = [NSMutableDictionary dictionaryAsKey:@"mDict"];
 	[mDict setObject:@"letter a" forKey:@"a"];
 	STAssertTrue([[mDict objectForKey:@"a"] isEqualToString:@"letter a"], @"the dict didn't store well");
 	
-	id mDict2 = [NSMutableDictionary objectAsKey:@"mDict"];
+	id mDict2 = [NSMutableDictionary dictionaryAsKey:@"mDict"];
 	STAssertNotNil(mDict2, @"dict returned nil");
 	STAssertTrue([[mDict2 objectForKey:@"a"] isEqualToString:@"letter a"], @"the dict didn't store well");
 	
@@ -371,17 +371,17 @@
 	[[Cocoadis persistence] flushCache];
 	[NSThread sleepForTimeInterval:1];
 	
-	id mDict3 = [NSMutableDictionary objectAsKey:@"mDict"];
+	id mDict3 = [NSMutableDictionary dictionaryAsKey:@"mDict"];
 	STAssertNotNil(mDict3, @"dict returned nil");
 	STAssertTrue([[mDict3 objectForKey:@"a"] isEqualToString:@"letter a"], @"the dict didn't store well");
 }
 
 - (void)test_12_coDictionary_autorelease {
-	id mDict = [CODictionary objectAsKey:@"mDict"];
+	id mDict = [CODictionary dictionaryAsKey:@"mDict"];
 	[mDict setObject:@"letter a" forKey:@"a"];
 	STAssertTrue([[mDict objectForKey:@"a"] isEqualToString:@"letter a"], @"the dict didn't store well");
 	
-	id mDict2 = [CODictionary objectAsKey:@"mDict"];
+	id mDict2 = [CODictionary dictionaryAsKey:@"mDict"];
 	STAssertNotNil(mDict2, @"dict returned nil");
 	STAssertTrue([[mDict2 objectForKey:@"a"] isEqualToString:@"letter a"], @"the dict didn't store well");
 	
@@ -389,18 +389,18 @@
 	[[Cocoadis persistence] flushCache];
 	[NSThread sleepForTimeInterval:1];
 	
-	id mDict3 = [CODictionary objectAsKey:@"mDict"];
+	id mDict3 = [CODictionary dictionaryAsKey:@"mDict"];
 	STAssertNotNil(mDict3, @"dict returned nil");
 	STAssertTrue([[mDict3 objectForKey:@"a"] isEqualToString:@"letter a"], @"the dict didn't store well");
 }
 
 
 - (void)test_13_String_autorelease {
-	id mString = [NSMutableString objectAsKey:@"mString"];
+	id mString = [NSMutableString stringAsKey:@"mString"];
 	[mString setString:@"a string"];
 	STAssertTrue([mString isEqualToString:@"a string"], @"wrong string: %@", mString);
 	
-	id mString2 = [NSMutableString objectAsKey:@"mString"];
+	id mString2 = [NSMutableString stringAsKey:@"mString"];
 	STAssertNotNil(mString2, @"string returned nil");
 	STAssertTrue([mString2 isEqualToString:@"a string"], @"wrong string: %@", mString2);
 	
@@ -408,17 +408,17 @@
 	[[Cocoadis persistence] flushCache];
 	[NSThread sleepForTimeInterval:1];
 	
-	id mString3 = [NSMutableString objectAsKey:@"mString"];
+	id mString3 = [NSMutableString stringAsKey:@"mString"];
 	STAssertNotNil(mString3, @"string returned nil");
 	STAssertTrue([mString3 isEqualToString:@"a string"], @"wrong string: %@", mString3);
 }
 
 - (void)test_13_coString_autorelease {
-	id mString = [COString objectAsKey:@"mString"];
+	id mString = [COString stringAsKey:@"mString"];
 	[mString setString:@"a string"];
 	STAssertTrue([mString isEqualToString:@"a string"], @"wrong string: %@", mString);
 	
-	id mString2 = [COString objectAsKey:@"mString"];
+	id mString2 = [COString stringAsKey:@"mString"];
 	STAssertNotNil(mString2, @"string returned nil");
 	STAssertTrue([mString2 isEqualToString:@"a string"], @"wrong string: %@", mString2);
 	
@@ -426,17 +426,17 @@
 	[[Cocoadis persistence] flushCache];
 	[NSThread sleepForTimeInterval:1];
 	
-	id mString3 = [COString objectAsKey:@"mString"];
+	id mString3 = [COString stringAsKey:@"mString"];
 	STAssertNotNil(mString3, @"string returned nil");
 	STAssertTrue([mString3 isEqualToString:@"a string"], @"wrong string: %@", mString3);
 }
 
 - (void) test_14_Set_autorelease {
-	id mSet = [NSMutableSet objectAsKey:@"mSet"];
+	id mSet = [NSMutableSet setAsKey:@"mSet"];
 	[mSet addObject:@"a"];
 	STAssertTrue([[mSet member:@"a"] isEqualToString:@"a"], @"is not a set");
 	
-	id mSet2 = [NSMutableSet objectAsKey:@"mSet"];
+	id mSet2 = [NSMutableSet setAsKey:@"mSet"];
 	STAssertNotNil(mSet2, @"set: returned nil");
 	STAssertTrue([[mSet2 member:@"a"] isEqualToString:@"a"], @"is not a set");
 	
@@ -444,17 +444,17 @@
 	[[Cocoadis persistence] flushCache];
 	[NSThread sleepForTimeInterval:1];
 	
-	id mSet3 = [NSMutableSet objectAsKey:@"mSet"];
+	id mSet3 = [NSMutableSet setAsKey:@"mSet"];
 	STAssertNotNil(mSet3, @"set: returned nil");
 	STAssertTrue([[mSet3 member:@"a"] isEqualToString:@"a"], @"is not a set");
 }
 
 - (void) test_14_coSet_autorelease {
-	id mSet = [COSet objectAsKey:@"mSet"];
+	id mSet = [COSet setAsKey:@"mSet"];
 	[mSet addObject:@"a"];
 	STAssertTrue([[mSet member:@"a"] isEqualToString:@"a"], @"is not a set");
 	
-	id mSet2 = [COSet objectAsKey:@"mSet"];
+	id mSet2 = [COSet setAsKey:@"mSet"];
 	STAssertNotNil(mSet2, @"set: returned nil");
 	STAssertTrue([[mSet2 member:@"a"] isEqualToString:@"a"], @"is not a set");
 	
@@ -462,7 +462,7 @@
 	[[Cocoadis persistence] flushCache];
 	[NSThread sleepForTimeInterval:1];
 	
-	id mSet3 = [COSet objectAsKey:@"mSet"];
+	id mSet3 = [COSet setAsKey:@"mSet"];
 	STAssertNotNil(mSet3, @"set: returned nil");
 	STAssertTrue([[mSet3 member:@"a"] isEqualToString:@"a"], @"is not a set");
 }
@@ -511,6 +511,23 @@
 	
 	id array3 = [[COArray alloc] initAsKey:@"arr"];
 	STAssertFalse([array3 isEqualToArray:array1], @"array from different persistence are equal");
+	
+	[pers1 clearPersistence]; [pers2 clearPersistence];
+}
+
+- (void)test_17_multiple_obj {
+	id mArray = [COArray arrayAsKey:@"mArray"];
+	[mArray addObject:@"a"];
+	
+	id mArray2 = [COArray arrayAsKey:@"mArray"];
+	[mArray2 addObject:@"b"];
+	
+	STAssertTrue([mArray count] == 2, @"pointer to wrong array");
+	
+	[mArray addObject:@"a"];
+	STAssertTrue([mArray count] == 3, @"pointer to wrong array");
+	STAssertTrue([mArray2 count] == 3, @"pointer to wrong array");
+	STAssertTrue([mArray isEqualToArray:mArray2], @"wrong pointer, arrays are not same");
 }
 
 @end

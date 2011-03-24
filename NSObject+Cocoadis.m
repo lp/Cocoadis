@@ -74,32 +74,25 @@
 		 [self isKindOfClass:[NSMutableString class]] ||
 		 [self isKindOfClass:[NSMutableSet class]])
 		) {
-		return [[Cocoadis persistence] persist:self key:key];
+		return [[Cocoadis persistence] persistExisting:self key:key];
 	} else {
 		[self doesNotRecognizeSelector:@selector(persistence:)];
 	}
 	return nil;
 }
 
--(BOOL)isEmpty
-{
-	if ([self isKindOfClass:[NSString class]]) {
-		if ([self performSelector:@selector(length)] == 0) {
-			return YES;
-		}
-	} else if ([self respondsToSelector:@selector(count)]) {
-		if ([self performSelector:@selector(count)] == 0) {
-			return YES;
-		}
-	} else {
-		[self doesNotRecognizeSelector:@selector(isEmpty)];
-	}
-	return NO;
-}
+@end
+
+@implementation NSMutableArray (Cocoadis)
+
++(id)arrayAsKey:(NSString*)key { return [self objectAsKey:key]; }
 
 @end
 
+
 @implementation NSMutableDictionary (Cocoadis)
+
++(id)dictionaryAsKey:(NSString*)key { return [self objectAsKey:key]; }
 
 -(NSString*)keyForObject:(id)obj
 {	
@@ -114,6 +107,18 @@
 		return NO;
 	}
 }
+
+@end
+
+@implementation NSMutableString (Cocoadis)
+
++(id)stringAsKey:(NSString*)key { return [self objectAsKey:key]; }
+
+@end
+
+@implementation NSMutableSet (Cocoadis)
+
++(id)setAsKey:(NSString*)key { return [self objectAsKey:key]; }
 
 @end
 

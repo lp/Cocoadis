@@ -9,14 +9,30 @@ h3. Cocoadis:
 
 h3. init:
 
+h5. Global persistence
+
 bc. [[Cocoadis persistence] setBasePath:NSTemporaryDirectory()];
-NSMutableArray * persistedArray = [[NSMutableArray alloc] initWithPersistence:@"myArray"];
+COArray * persistedArray = [[COArray alloc] initAsKey:@"myArray"];
+
+h5. Specific persistence
+
+bc. Cocoadis * persistence1 = [[Cocoadis alloc] initWithPath:[NSString pathWithComponents:
+										    [NSArray arrayWithObjects:
+											NSTemporaryDirectory(), @"pers1", nil]]];
+COArray * persistedArray = [[COArray alloc] initAsKey:@"myArray" persistence:persistence1];
+
+h5. As Foundation Class (only with global persistence)
+
+bc. NSMutableArray * persistedArray = [[NSMutableArray alloc] initAsKey:@"myArray"];
+// or from existing object
+NSMutableArray * array = [[NSMutableArray alloc] initWithObjects:@"a", @"b", @"c", nil];
+[array persistence:@"newArray"];
 
 h3. saving:
 
 h5. per instance
 
-bc. [persistedArray saveToPersistence];
+bc. [persistedArray persist];
 
 h5. whole bunch
 
@@ -45,7 +61,7 @@ h3. MacRuby:
 
 bc. >> framework "Cocoadis"
 => true
->> cdis = Array.alloc.initWithPersistence :myMacIRB
+>> cdis = Array.arrayAsKey :myMacIRB
 => []
 
 h5. ruby style
@@ -62,7 +78,7 @@ bc. >> Cocoadis.persistence.dbCache.inspect
 
 h5. save it
 
-bc. >> cdis.saveToPersistence
+bc. >> cdis.persist
 => ["Hey", "MacRuby"]
 
 h5. clear cache
@@ -74,8 +90,17 @@ bc. >> Cocoadis.persistence.flushCache
 
 h5. get it back from persistence
 
-bc. >> recdis = Array.alloc.initWithPersistence :myMacIRB
+bc. >> recdis = Array.arrayAsKey :myMacIRB
 => ["Hey", "MacRuby"]   # Cocoadis persistence kept it!
+
+h5. playing with clones
+>> cdis = Array.arrayAsKey :myMacIRB
+=> ["Hey", "MacRuby"]   # got the persisted object
+>> recdis << "Rocks!"
+=> ["Hey", "MacRuby", "Rocks!"]
+>> cdis
+["Hey", "MacRuby", "Rocks!"]    # also modified
+
 
 h3. Downloads:
 * "Cocoadis MacOSX 10.6 Framework":https://github.com/downloads/lp/Cocoadis/Cocoadis_OSX_1_0.zip

@@ -107,10 +107,14 @@
 @end
 
 @implementation COArray
++(id)arrayAsKey:(NSString*)key { return [self objectAsKey:key]; }
 @end
 @implementation CODictionary
++(id)dictionaryAsKey:(NSString*)key { return [self objectAsKey:key]; }
 @end
 @implementation COString
++(id)stringAsKey:(NSString*)key { return [self objectAsKey:key]; }
 @end
 @implementation COSet
++(id)setAsKey:(NSString*)key { return [self objectAsKey:key]; }
 @end
