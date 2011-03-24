@@ -17,6 +17,12 @@
 		0C20238A13338602008E77D7 /* Cocoadis.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C8BD864132A81A300430BD0 /* Cocoadis.m */; };
 		0C2023A313338659008E77D7 /* libCocoadis_Simulator.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C20237213338541008E77D7 /* libCocoadis_Simulator.a */; };
 		0C2023A713338681008E77D7 /* Cocoadis_01_Basic_TestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C8BD922132A87B000430BD0 /* Cocoadis_01_Basic_TestCase.m */; };
+		0C45A243133A9AF400DD3D68 /* NSObject+Cocoadis.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C45A241133A9AF400DD3D68 /* NSObject+Cocoadis.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		0C45A244133A9AF400DD3D68 /* NSObject+Cocoadis.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C45A242133A9AF400DD3D68 /* NSObject+Cocoadis.m */; };
+		0C45A245133A9AF400DD3D68 /* NSObject+Cocoadis.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C45A241133A9AF400DD3D68 /* NSObject+Cocoadis.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		0C45A246133A9AF400DD3D68 /* NSObject+Cocoadis.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C45A242133A9AF400DD3D68 /* NSObject+Cocoadis.m */; };
+		0C45A247133A9AF400DD3D68 /* NSObject+Cocoadis.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C45A241133A9AF400DD3D68 /* NSObject+Cocoadis.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		0C45A248133A9AF400DD3D68 /* NSObject+Cocoadis.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C45A242133A9AF400DD3D68 /* NSObject+Cocoadis.m */; };
 		0C8BD865132A81A300430BD0 /* Cocoadis.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C8BD863132A81A300430BD0 /* Cocoadis.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0C8BD866132A81A300430BD0 /* Cocoadis.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C8BD864132A81A300430BD0 /* Cocoadis.m */; };
 		0C8BD882132A829A00430BD0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0867D69BFE84028FC02AAC07 /* Foundation.framework */; };
@@ -63,6 +69,8 @@
 		0C20237213338541008E77D7 /* libCocoadis_Simulator.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCocoadis_Simulator.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C2023991333863B008E77D7 /* Test_Cocoadis_Simulator.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Test_Cocoadis_Simulator.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C20239A1333863B008E77D7 /* Test_Cocoadis_Simulator-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Test_Cocoadis_Simulator-Info.plist"; sourceTree = "<group>"; };
+		0C45A241133A9AF400DD3D68 /* NSObject+Cocoadis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Cocoadis.h"; sourceTree = "<group>"; };
+		0C45A242133A9AF400DD3D68 /* NSObject+Cocoadis.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Cocoadis.m"; sourceTree = "<group>"; };
 		0C8BD863132A81A300430BD0 /* Cocoadis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cocoadis.h; sourceTree = "<group>"; };
 		0C8BD864132A81A300430BD0 /* Cocoadis.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cocoadis.m; sourceTree = "<group>"; };
 		0C8BD915132A871E00430BD0 /* Test_Cocoadis_OSX.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Test_Cocoadis_OSX.octest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -171,6 +179,8 @@
 		08FB77AEFE84172EC02AAC07 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				0C45A241133A9AF400DD3D68 /* NSObject+Cocoadis.h */,
+				0C45A242133A9AF400DD3D68 /* NSObject+Cocoadis.m */,
 				0C8BD863132A81A300430BD0 /* Cocoadis.h */,
 				0C8BD864132A81A300430BD0 /* Cocoadis.m */,
 				0CADBA06133A63C000F5C888 /* COObject.h */,
@@ -226,6 +236,7 @@
 				0C20237D13338596008E77D7 /* Cocoadis.h in Headers */,
 				0CADBA0C133A63C000F5C888 /* COObject.h in Headers */,
 				0CADBBFD133A8B9600F5C888 /* COHelper_iOS.h in Headers */,
+				0C45A247133A9AF400DD3D68 /* NSObject+Cocoadis.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,6 +247,7 @@
 				0C20238913338600008E77D7 /* Cocoadis.h in Headers */,
 				0CADBA0A133A63C000F5C888 /* COObject.h in Headers */,
 				0CADBBFB133A8B9600F5C888 /* COHelper_iOS.h in Headers */,
+				0C45A245133A9AF400DD3D68 /* NSObject+Cocoadis.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -246,6 +258,7 @@
 				0C8BD865132A81A300430BD0 /* Cocoadis.h in Headers */,
 				0CADBA08133A63C000F5C888 /* COObject.h in Headers */,
 				0CADBBF1133A8B7B00F5C888 /* COHelper_OSX.h in Headers */,
+				0C45A243133A9AF400DD3D68 /* NSObject+Cocoadis.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,6 +447,7 @@
 				0C20237E13338599008E77D7 /* Cocoadis.m in Sources */,
 				0CADBA0D133A63C000F5C888 /* COObject.m in Sources */,
 				0CADBBFE133A8B9600F5C888 /* COHelper_iOS.m in Sources */,
+				0C45A248133A9AF400DD3D68 /* NSObject+Cocoadis.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -444,6 +458,7 @@
 				0C20238A13338602008E77D7 /* Cocoadis.m in Sources */,
 				0CADBA0B133A63C000F5C888 /* COObject.m in Sources */,
 				0CADBBFC133A8B9600F5C888 /* COHelper_iOS.m in Sources */,
+				0C45A246133A9AF400DD3D68 /* NSObject+Cocoadis.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -474,6 +489,7 @@
 				0C8BD866132A81A300430BD0 /* Cocoadis.m in Sources */,
 				0CADBA09133A63C000F5C888 /* COObject.m in Sources */,
 				0CADBBF2133A8B7B00F5C888 /* COHelper_OSX.m in Sources */,
+				0C45A244133A9AF400DD3D68 /* NSObject+Cocoadis.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -511,6 +527,7 @@
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "IOS=1";
 				PREBINDING = NO;
 				PRODUCT_NAME = Cocoadis_iOS;
 				SDKROOT = iphoneos;
@@ -524,6 +541,7 @@
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_PREPROCESSOR_DEFINITIONS = "IOS=1";
 				PREBINDING = NO;
 				PRODUCT_NAME = Cocoadis_iOS;
 				SDKROOT = iphoneos;
@@ -538,6 +556,7 @@
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "IOS=1";
 				PREBINDING = NO;
 				PRODUCT_NAME = Cocoadis_Simulator;
 				SDKROOT = iphonesimulator4.2;
@@ -551,6 +570,7 @@
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_PREPROCESSOR_DEFINITIONS = "IOS=1";
 				PREBINDING = NO;
 				PRODUCT_NAME = Cocoadis_Simulator;
 				SDKROOT = iphonesimulator4.2;
@@ -572,6 +592,7 @@
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "IOS=1";
 				INFOPLIST_FILE = "Test_Cocoadis_Simulator-Info.plist";
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -603,6 +624,7 @@
 				);
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = "IOS=1";
 				INFOPLIST_FILE = "Test_Cocoadis_Simulator-Info.plist";
 				OTHER_LDFLAGS = (
 					"-ObjC",

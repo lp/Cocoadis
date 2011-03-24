@@ -1,8 +1,8 @@
 //
-//  COHelper_OSX.m
+//  NSObject+Cocoadis.h
 //  Cocoadis
 //
-//  Created by Louis-Philippe on 11-03-23.
+//  Created by Louis-Philippe on 11-03-21.
 //  Copyright (c) 2010 Louis-Philippe Perron.
 // 
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -24,39 +24,25 @@
 //  THE SOFTWARE.
 // 
 
+#import <Foundation/Foundation.h>
 
-#import "COHelper_OSX.h"
+@interface NSObject (Cocoadis)
 
-@implementation COHelper
-
-+(id)dbCache
-{
-	if ([[NSGarbageCollector defaultCollector] isEnabled]) {
-		return [[NSMapTable alloc] initWithKeyOptions:NSMapTableZeroingWeakMemory
-										valueOptions:NSMapTableZeroingWeakMemory
-											capacity:100];
-	} else {
-		return [[NSMutableDictionary alloc] init];
-	}
-}
-
-+(BOOL)gc
-{
-	return [[NSGarbageCollector defaultCollector] isEnabled];
-}
-
-+(void)runGC
-{
-	[[NSGarbageCollector defaultCollector] collectExhaustively];
-}
+-(id)initWithPersistence:(NSString*)key;
++(id)objectWithPersistence:(NSString*)key;
+-(void)persist;
 
 @end
 
-@implementation NSMapTable (Cocoadis)
--(NSString*)keyForObject:(id)obj
-{	
-	NSDictionary * dictRep = [self dictionaryRepresentation];
-	return [[dictRep allKeys] objectAtIndex:[[dictRep allValues] indexOfObject:obj]];
-}
+@interface NSMutableDictionary (Cocoadis)
+
+-(NSString*)keyForObject:(id)obj;
+-(BOOL)containsObject:(id)obj;
 
 @end
+
+
+
+
+
+

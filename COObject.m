@@ -38,14 +38,6 @@
 	[super dealloc];
 }
 
-
-+(id)objectWithPersistence:(NSString*)key
-{
-	id array = [[self alloc] initWithPersistence:key];
-	[array autorelease];
-	return array;
-}
-
 -(id)initWithPersistence:(NSString *)key
 {
 	self = [super init];
@@ -66,7 +58,7 @@
 
 -(void)persist
 {
-	[[Cocoadis persistence] saveMember:name];
+	[[Cocoadis persistence] saveMember:obj];
 }
 
 // forwarding to obj
