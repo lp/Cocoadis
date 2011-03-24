@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		0C0BF279133520B600241221 /* Cocoadis_01_Basic_TestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C8BD922132A87B000430BD0 /* Cocoadis_01_Basic_TestCase.m */; };
 		0C0BF2AA1336693C00241221 /* Cocoadis_02_Test_Persist.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C201D85132AA411008E77D7 /* Cocoadis_02_Test_Persist.m */; };
-		0C201D6E132A8EA8008E77D7 /* Cocoadis in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* Cocoadis */; };
+		0C201D6E132A8EA8008E77D7 /* Cocoadis.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* Cocoadis.framework */; };
 		0C201D86132AA411008E77D7 /* Cocoadis_02_Test_Persist.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C201D85132AA411008E77D7 /* Cocoadis_02_Test_Persist.m */; };
 		0C20237D13338596008E77D7 /* Cocoadis.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C8BD863132A81A300430BD0 /* Cocoadis.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0C20237E13338599008E77D7 /* Cocoadis.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C8BD864132A81A300430BD0 /* Cocoadis.m */; };
@@ -85,7 +85,7 @@
 		0CFAC375133A3D02000C1565 /* Cocoadis_03_Test_GC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cocoadis_03_Test_GC.m; sourceTree = "<group>"; };
 		32DBCF5E0370ADEE00C91783 /* Cocoadis_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cocoadis_Prefix.pch; sourceTree = "<group>"; };
 		8DC2EF5A0486A6940098B216 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8DC2EF5B0486A6940098B216 /* Cocoadis */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.framework; path = Cocoadis; sourceTree = BUILT_PRODUCTS_DIR; };
+		8DC2EF5B0486A6940098B216 /* Cocoadis.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Cocoadis.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,7 +116,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C8BD958132A8D9400430BD0 /* Foundation.framework in Frameworks */,
-				0C201D6E132A8EA8008E77D7 /* Cocoadis in Frameworks */,
+				0C201D6E132A8EA8008E77D7 /* Cocoadis.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -134,7 +134,7 @@
 		034768DFFF38A50411DB9C8B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8DC2EF5B0486A6940098B216 /* Cocoadis */,
+				8DC2EF5B0486A6940098B216 /* Cocoadis.framework */,
 				0C8BD915132A871E00430BD0 /* Test_Cocoadis_OSX.octest */,
 				0C20236713338520008E77D7 /* libCocoadis_iOS.a */,
 				0C20237213338541008E77D7 /* libCocoadis_Simulator.a */,
@@ -353,7 +353,7 @@
 			name = Cocoadis;
 			productInstallPath = "$(HOME)/Library/Frameworks";
 			productName = Cocoadis;
-			productReference = 8DC2EF5B0486A6940098B216 /* Cocoadis */;
+			productReference = 8DC2EF5B0486A6940098B216 /* Cocoadis.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */

@@ -93,7 +93,7 @@ h5. get it back from persistence
 bc. >> recdis = Array.arrayAsKey :myMacIRB
 => ["Hey", "MacRuby"]   # Cocoadis persistence kept it!
 
-h5. playing with clones
+h5. play with clones
 
 bc. >> cdis = Array.arrayAsKey :myMacIRB
 => ["Hey", "MacRuby"]   # got the persisted object
@@ -104,8 +104,10 @@ bc. >> cdis = Array.arrayAsKey :myMacIRB
 
 
 h3. Downloads:
-* "Cocoadis MacOSX 10.6 Framework":https://github.com/downloads/lp/Cocoadis/Cocoadis_OSX_1_0.zip
-* "Cocoadis iOS 4.2 Static Library":https://github.com/downloads/lp/Cocoadis/Cocoadis_iOS_1_0.zip
-* "Cocoadis iOS Simulator 4.2 Static Library":https://github.com/downloads/lp/Cocoadis/Cocoadis_Simulator_1_0.zip
+* "Cocoadis MacOSX 10.6 Framework":https://github.com/downloads/lp/Cocoadis/Cocoadis_OSX_1_2.zip
+* "Cocoadis iOS 4.2 Static Library":https://github.com/downloads/lp/Cocoadis/Cocoadis_iOS_1_2.zip
+* "Cocoadis iOS Simulator 4.2 Static Library":https://github.com/downloads/lp/Cocoadis/Cocoadis_Simulator_1_2.zip
 
+h3. Note for iOS usage:
 
+p. To be able to import the static library into an iOS project, you will have to add *-ObjC* and *-all_load* to your *Other Linker Flags*
