@@ -17,8 +17,8 @@ COArray * persistedArray = [[COArray alloc] initAsKey:@"myArray"];
 h5. Specific persistence
 
 bc. Cocoadis * persistence1 = [[Cocoadis alloc] initWithPath:[NSString pathWithComponents:
-										    [NSArray arrayWithObjects:
-											NSTemporaryDirectory(), @"pers1", nil]]];
+                                            [NSArray arrayWithObjects:
+                                            NSTemporaryDirectory(), @"pers1", nil]]];
 COArray * persistedArray = [[COArray alloc] initAsKey:@"myArray" persistence:persistence1];
 
 h5. As Foundation Class (only with global persistence)
@@ -94,7 +94,8 @@ bc. >> recdis = Array.arrayAsKey :myMacIRB
 => ["Hey", "MacRuby"]   # Cocoadis persistence kept it!
 
 h5. playing with clones
->> cdis = Array.arrayAsKey :myMacIRB
+
+bc. >> cdis = Array.arrayAsKey :myMacIRB
 => ["Hey", "MacRuby"]   # got the persisted object
 >> recdis << "Rocks!"
 => ["Hey", "MacRuby", "Rocks!"]
