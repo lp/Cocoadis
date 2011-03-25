@@ -105,19 +105,11 @@
 
 - (BOOL)containsObject:(id)obj
 {
-	NSUInteger index = 0;
-	while (YES) {
-		id result = [self objectAtIndex:index];
-		if (result) {
-			if ([result isEqual:obj]) {
-				return YES;
-			} else {
-				index++;
-			}
-		} else {
-			return NO;
-		}
+	NSUInteger result = [self indexOfObject:obj];
+	if (result == NSNotFound) {
+		return NO;
 	}
+	return YES;
 }
 
 - (NSUInteger)count
@@ -177,6 +169,23 @@
 	NSArray * resultArray = [self objectsAtIndexes:
 							 [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, [self count])]];
 	return [resultArray reverseObjectEnumerator];
+}
+
+- (NSUInteger)indexOfObject:(id)anObject
+{
+	NSUInteger index = 0;
+	while (YES) {
+		id result = [self objectAtIndex:index];
+		if (result) {
+			if ([result isEqual:anObject]) {
+				return index;
+			} else {
+				index++;
+			}
+		} else {
+			return NSNotFound;
+		}
+	}
 }
 
 

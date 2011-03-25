@@ -161,4 +161,14 @@
 	free(objects);
 }
 
+- (void)test_08_indexOfObject {
+	id array = [[COArray alloc] initAsKey:@"anArray" persistence:redis];
+	[array addObject:@"aaa"];
+	[array addObject:@"bbb"];
+	[array addObject:@"ccc"];
+	
+	STAssertTrue([array indexOfObject:@"bbb"] == 1, @"indexOfObject didn't return the right object");
+	STAssertTrue([array indexOfObject:@"ddd"] == NSNotFound, @"indexOfObject didn't return NSNotFound on unfound object");
+}
+
 @end
