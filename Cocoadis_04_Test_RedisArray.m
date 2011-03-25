@@ -171,4 +171,17 @@
 	STAssertTrue([array indexOfObject:@"ddd"] == NSNotFound, @"indexOfObject didn't return NSNotFound on unfound object");
 }
 
+- (void)test_09_indexOfObject {
+	id array = [[COArray alloc] initAsKey:@"anArray" persistence:redis];
+	[array addObject:@"aaa"];
+	[array addObject:@"bbb"];
+	[array addObject:@"ccc"];
+	[array addObject:@"ddd"];
+	
+	STAssertTrue([array indexOfObject:@"ccc" inRange:NSMakeRange(1, 2)] == 2,
+				 @"indexOfObject:inRange: didn't return the right index");
+	STAssertTrue([array indexOfObject:@"ccc" inRange:NSMakeRange(0, 2)] == NSNotFound,
+				 @"indexOfObject:inRange: didn't return the right index");
+}
+
 @end

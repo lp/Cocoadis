@@ -188,5 +188,17 @@
 	}
 }
 
+- (NSUInteger)indexOfObject:(id)anObject inRange:(NSRange)range
+{	
+	for (NSInteger i = 0; i < range.length; i++) {
+		NSInteger idx = i+range.location;
+		id result = [self objectAtIndex:idx];
+		if ([result isEqual:anObject]) {
+			return idx;
+		}
+	}
+	return NSNotFound;
+}
+
 
 @end

@@ -51,5 +51,6 @@
 - (NSEnumerator*)reverseObjectEnumerator;
 
 - (NSUInteger)indexOfObject:(id)anObject;
+- (NSUInteger)indexOfObject:(id)anObject inRange:(NSRange)range;
 
 @end
