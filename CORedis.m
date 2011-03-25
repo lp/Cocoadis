@@ -129,6 +129,14 @@
 	return 0;
 }
 
+- (void)getObjects:(id*)aBuffer range:(NSRange)range
+{
+	for (NSUInteger i = 0; i < range.length; i++) {
+		NSUInteger idx = i + range.location;
+		aBuffer[i] = [self objectAtIndex:idx];
+	}
+}
+
 - (id)lastObject
 {
 	return [self objectAtIndex:-1];
@@ -162,6 +170,13 @@
 	NSArray * resultArray = [self objectsAtIndexes:
 							 [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, [self count])]];
 	return [resultArray objectEnumerator];
+}
+
+- (NSEnumerator*)reverseObjectEnumerator
+{
+	NSArray * resultArray = [self objectsAtIndexes:
+							 [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, [self count])]];
+	return [resultArray reverseObjectEnumerator];
 }
 
 

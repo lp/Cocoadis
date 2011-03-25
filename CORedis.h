@@ -45,9 +45,11 @@
 // getters
 - (BOOL)containsObject:(id)obj;
 - (NSUInteger)count;
+- (void)getObjects:(id*)aBuffer range:(NSRange)range;
 - (id)lastObject;
 - (id)objectAtIndex:(NSUInteger)index;
 - (NSArray*)objectsAtIndexes:(NSIndexSet*)indexes;
 - (NSEnumerator*)objectEnumerator;
+- (NSEnumerator*)reverseObjectEnumerator;
 
 @end

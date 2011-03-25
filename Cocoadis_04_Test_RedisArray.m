@@ -130,6 +130,35 @@
 		count++;
 	}
 	STAssertTrue(count == 3, @"objectEnumerator didn't enumerate all the arrays items");
+	
+	arrayEnum = [array reverseObjectEnumerator];
+	count = 0;
+	while (obj = [arrayEnum nextObject]) {
+		STAssertTrue([array containsObject:obj], @"objectEnumerator enum the wrong objects");
+		count++;
+	}
+	STAssertTrue(count == 3, @"objectEnumerator didn't enumerate all the arrays items");
+}
+
+- (void)test_07_getObjects {
+	id array = [[COArray alloc] initAsKey:@"anArray" persistence:redis];
+	[array addObject:@"aaa"];
+	[array addObject:@"bbb"];
+	[array addObject:@"ccc"];
+	
+	id *objects;
+	NSRange range = NSMakeRange(1, 2);
+	objects = malloc(sizeof(id) * range.length);
+	
+	[array getObjects:objects range:range];
+	NSUInteger count = 0;
+	for (NSUInteger i = 0; i < range.length; i++) {
+		STAssertTrue([objects[i] isEqual:[array objectAtIndex:(i+range.location)]],
+					 @"getObjects didn't return the right buffer");
+		count++;
+	}
+	STAssertTrue(count == 2, @"getObject didn't return all the range items");
+	free(objects);
 }
 
 @end
