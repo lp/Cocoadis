@@ -7,10 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0C0BF279133520B600241221 /* Cocoadis_01_Basic_TestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C8BD922132A87B000430BD0 /* Cocoadis_01_Basic_TestCase.m */; };
 		0C0BF2AA1336693C00241221 /* Cocoadis_02_Test_Persist.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C201D85132AA411008E77D7 /* Cocoadis_02_Test_Persist.m */; };
 		0C201D6E132A8EA8008E77D7 /* Cocoadis.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* Cocoadis.framework */; };
-		0C201D86132AA411008E77D7 /* Cocoadis_02_Test_Persist.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C201D85132AA411008E77D7 /* Cocoadis_02_Test_Persist.m */; };
 		0C20237D13338596008E77D7 /* Cocoadis.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C8BD863132A81A300430BD0 /* Cocoadis.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0C20237E13338599008E77D7 /* Cocoadis.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C8BD864132A81A300430BD0 /* Cocoadis.m */; };
 		0C20238913338600008E77D7 /* Cocoadis.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C8BD863132A81A300430BD0 /* Cocoadis.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -33,13 +31,20 @@
 		0CADBA0B133A63C000F5C888 /* COObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CADBA07133A63C000F5C888 /* COObject.m */; };
 		0CADBA0C133A63C000F5C888 /* COObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 0CADBA06133A63C000F5C888 /* COObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0CADBA0D133A63C000F5C888 /* COObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CADBA07133A63C000F5C888 /* COObject.m */; };
-		0CADBB39133A829700F5C888 /* Cocoadis_03_Test_GC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CFAC375133A3D02000C1565 /* Cocoadis_03_Test_GC.m */; };
 		0CADBBF1133A8B7B00F5C888 /* COHelper_OSX.h in Headers */ = {isa = PBXBuildFile; fileRef = 0CADBBEF133A8B7B00F5C888 /* COHelper_OSX.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		0CADBBF2133A8B7B00F5C888 /* COHelper_OSX.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CADBBF0133A8B7B00F5C888 /* COHelper_OSX.m */; };
 		0CADBBFB133A8B9600F5C888 /* COHelper_iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 0CADBBF7133A8B9600F5C888 /* COHelper_iOS.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		0CADBBFC133A8B9600F5C888 /* COHelper_iOS.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CADBBF8133A8B9600F5C888 /* COHelper_iOS.m */; };
 		0CADBBFD133A8B9600F5C888 /* COHelper_iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 0CADBBF7133A8B9600F5C888 /* COHelper_iOS.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		0CADBBFE133A8B9600F5C888 /* COHelper_iOS.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CADBBF8133A8B9600F5C888 /* COHelper_iOS.m */; };
+		0CD928DE133BDE9C0085CD78 /* CORedis.h in Headers */ = {isa = PBXBuildFile; fileRef = 0CD928DC133BDE9C0085CD78 /* CORedis.h */; };
+		0CD928DF133BDE9C0085CD78 /* CORedis.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CD928DD133BDE9C0085CD78 /* CORedis.m */; };
+		0CD928E0133BDE9C0085CD78 /* CORedis.h in Headers */ = {isa = PBXBuildFile; fileRef = 0CD928DC133BDE9C0085CD78 /* CORedis.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0CD928E1133BDE9C0085CD78 /* CORedis.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CD928DD133BDE9C0085CD78 /* CORedis.m */; };
+		0CD928E2133BDE9C0085CD78 /* CORedis.h in Headers */ = {isa = PBXBuildFile; fileRef = 0CD928DC133BDE9C0085CD78 /* CORedis.h */; };
+		0CD928E3133BDE9C0085CD78 /* CORedis.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CD928DD133BDE9C0085CD78 /* CORedis.m */; };
+		0CD92943133CD25E0085CD78 /* ObjCHiredis.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CD92942133CD25E0085CD78 /* ObjCHiredis.framework */; };
+		0CD9298A133CD70D0085CD78 /* Cocoadis_04_Test_RedisArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CD9293D133CD0B80085CD78 /* Cocoadis_04_Test_RedisArray.m */; };
 		0CFAC376133A3D02000C1565 /* Cocoadis_03_Test_GC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CFAC375133A3D02000C1565 /* Cocoadis_03_Test_GC.m */; };
 		8DC2EF530486A6940098B216 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C1666FE841158C02AAC07 /* InfoPlist.strings */; };
 /* End PBXBuildFile section */
@@ -82,6 +87,10 @@
 		0CADBBF0133A8B7B00F5C888 /* COHelper_OSX.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COHelper_OSX.m; sourceTree = "<group>"; };
 		0CADBBF7133A8B9600F5C888 /* COHelper_iOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COHelper_iOS.h; sourceTree = "<group>"; };
 		0CADBBF8133A8B9600F5C888 /* COHelper_iOS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COHelper_iOS.m; sourceTree = "<group>"; };
+		0CD928DC133BDE9C0085CD78 /* CORedis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CORedis.h; sourceTree = "<group>"; };
+		0CD928DD133BDE9C0085CD78 /* CORedis.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CORedis.m; sourceTree = "<group>"; };
+		0CD9293D133CD0B80085CD78 /* Cocoadis_04_Test_RedisArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cocoadis_04_Test_RedisArray.m; sourceTree = "<group>"; };
+		0CD92942133CD25E0085CD78 /* ObjCHiredis.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjCHiredis.framework; path = /Users/lpperron/Library/Frameworks/ObjCHiredis.framework; sourceTree = "<absolute>"; };
 		0CFAC375133A3D02000C1565 /* Cocoadis_03_Test_GC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cocoadis_03_Test_GC.m; sourceTree = "<group>"; };
 		32DBCF5E0370ADEE00C91783 /* Cocoadis_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cocoadis_Prefix.pch; sourceTree = "<group>"; };
 		8DC2EF5A0486A6940098B216 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -117,6 +126,7 @@
 			files = (
 				0C8BD958132A8D9400430BD0 /* Foundation.framework in Frameworks */,
 				0C201D6E132A8EA8008E77D7 /* Cocoadis.framework in Frameworks */,
+				0CD92943133CD25E0085CD78 /* ObjCHiredis.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -161,6 +171,7 @@
 		0867D69AFE84028FC02AAC07 /* External Frameworks and Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				0CD92942133CD25E0085CD78 /* ObjCHiredis.framework */,
 				1058C7B0FEA5585E11CA2CBB /* Linked Frameworks */,
 				1058C7B2FEA5585E11CA2CBB /* Other Frameworks */,
 			);
@@ -189,6 +200,8 @@
 				0CADBBF0133A8B7B00F5C888 /* COHelper_OSX.m */,
 				0CADBBF7133A8B9600F5C888 /* COHelper_iOS.h */,
 				0CADBBF8133A8B9600F5C888 /* COHelper_iOS.m */,
+				0CD928DC133BDE9C0085CD78 /* CORedis.h */,
+				0CD928DD133BDE9C0085CD78 /* CORedis.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -199,6 +212,7 @@
 				0C8BD922132A87B000430BD0 /* Cocoadis_01_Basic_TestCase.m */,
 				0C201D85132AA411008E77D7 /* Cocoadis_02_Test_Persist.m */,
 				0CFAC375133A3D02000C1565 /* Cocoadis_03_Test_GC.m */,
+				0CD9293D133CD0B80085CD78 /* Cocoadis_04_Test_RedisArray.m */,
 			);
 			name = TestCases;
 			sourceTree = "<group>";
@@ -237,6 +251,7 @@
 				0CADBA0C133A63C000F5C888 /* COObject.h in Headers */,
 				0CADBBFD133A8B9600F5C888 /* COHelper_iOS.h in Headers */,
 				0C45A247133A9AF400DD3D68 /* NSObject+Cocoadis.h in Headers */,
+				0CD928DE133BDE9C0085CD78 /* CORedis.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -248,6 +263,7 @@
 				0CADBA0A133A63C000F5C888 /* COObject.h in Headers */,
 				0CADBBFB133A8B9600F5C888 /* COHelper_iOS.h in Headers */,
 				0C45A245133A9AF400DD3D68 /* NSObject+Cocoadis.h in Headers */,
+				0CD928E2133BDE9C0085CD78 /* CORedis.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,6 +275,7 @@
 				0CADBA08133A63C000F5C888 /* COObject.h in Headers */,
 				0CADBBF1133A8B7B00F5C888 /* COHelper_OSX.h in Headers */,
 				0C45A243133A9AF400DD3D68 /* NSObject+Cocoadis.h in Headers */,
+				0CD928E0133BDE9C0085CD78 /* CORedis.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -448,6 +465,7 @@
 				0CADBA0D133A63C000F5C888 /* COObject.m in Sources */,
 				0CADBBFE133A8B9600F5C888 /* COHelper_iOS.m in Sources */,
 				0C45A248133A9AF400DD3D68 /* NSObject+Cocoadis.m in Sources */,
+				0CD928DF133BDE9C0085CD78 /* CORedis.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -459,6 +477,7 @@
 				0CADBA0B133A63C000F5C888 /* COObject.m in Sources */,
 				0CADBBFC133A8B9600F5C888 /* COHelper_iOS.m in Sources */,
 				0C45A246133A9AF400DD3D68 /* NSObject+Cocoadis.m in Sources */,
+				0CD928E3133BDE9C0085CD78 /* CORedis.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -476,9 +495,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0C201D86132AA411008E77D7 /* Cocoadis_02_Test_Persist.m in Sources */,
-				0C0BF279133520B600241221 /* Cocoadis_01_Basic_TestCase.m in Sources */,
-				0CADBB39133A829700F5C888 /* Cocoadis_03_Test_GC.m in Sources */,
+				0CD9298A133CD70D0085CD78 /* Cocoadis_04_Test_RedisArray.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -490,6 +507,7 @@
 				0CADBA09133A63C000F5C888 /* COObject.m in Sources */,
 				0CADBBF2133A8B7B00F5C888 /* COHelper_OSX.m in Sources */,
 				0C45A244133A9AF400DD3D68 /* NSObject+Cocoadis.m in Sources */,
+				0CD928E1133BDE9C0085CD78 /* CORedis.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -649,7 +667,10 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = NO;
-				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+					"\"$(SRCROOT)/../../../../../Library/Frameworks\"",
+				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -678,7 +699,10 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+					"\"$(SRCROOT)/../../../../../Library/Frameworks\"",
+				);
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_MODEL_TUNING = G5;

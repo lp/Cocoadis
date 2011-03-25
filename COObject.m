@@ -27,6 +27,7 @@
 
 #import "COObject.h"
 #import "Cocoadis.h"
+#import "CORedis.h"
 
 @implementation COObject
 @synthesize obj;
@@ -57,15 +58,33 @@
 			persistence = [Cocoadis persistence];
 			[persistence retain];
 		}
-
-		if ([self isMemberOfClass:[COArray class]]) {
-			obj = [persistence persist:[[NSMutableArray alloc] init] key:key];
-		} else if ([self isMemberOfClass:[CODictionary class]]) {
-			obj = [persistence persist:[[NSMutableDictionary alloc] init] key:key];
-		} else if ([self isMemberOfClass:[COString class]]) {
-			obj = [persistence persist:[[NSMutableString alloc] init] key:key];
-		} else if ([self isMemberOfClass:[COSet class]]) {
-			obj = [persistence persist:[[NSMutableSet alloc] init] key:key];
+		
+		if ([persistence respondsToSelector:@selector(commandArgv:)]) {
+			if ([self isMemberOfClass:[COArray class]]) {
+				obj = [[CORedisArray alloc] initAsKey:key redis:persistence];
+			} else if ([self isMemberOfClass:[CODictionary class]]) {
+				obj = [[CORedisArray alloc] initAsKey:key redis:persistence];
+			} else if ([self isMemberOfClass:[COString class]]) {
+				obj = [[CORedisArray alloc] initAsKey:key redis:persistence];
+			} else if ([self isMemberOfClass:[COSet class]]) {
+				obj = [[CORedisArray alloc] initAsKey:key redis:persistence];
+			} else {
+				[self doesNotRecognizeSelector:@selector(initAsKey:persistence:)];
+				return nil;
+			}
+		} else if ([persistence isKindOfClass:[Cocoadis class]]) {
+			if ([self isMemberOfClass:[COArray class]]) {
+				obj = [persistence persist:[[NSMutableArray alloc] init] key:key];
+			} else if ([self isMemberOfClass:[CODictionary class]]) {
+				obj = [persistence persist:[[NSMutableDictionary alloc] init] key:key];
+			} else if ([self isMemberOfClass:[COString class]]) {
+				obj = [persistence persist:[[NSMutableString alloc] init] key:key];
+			} else if ([self isMemberOfClass:[COSet class]]) {
+				obj = [persistence persist:[[NSMutableSet alloc] init] key:key];
+			} else {
+				[self doesNotRecognizeSelector:@selector(initAsKey:persistence:)];
+				return nil;
+			}
 		} else {
 			[self doesNotRecognizeSelector:@selector(initAsKey:persistence:)];
 			return nil;
