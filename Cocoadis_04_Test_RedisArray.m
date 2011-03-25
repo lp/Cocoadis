@@ -184,4 +184,20 @@
 				 @"indexOfObject:inRange: didn't return the right index");
 }
 
+- (void)test_10_enumerateObjectsUsingBlock {
+	id array = [[COArray alloc] initAsKey:@"anArray" persistence:redis];
+	[array addObject:@"aaa"];
+	[array addObject:@"bbb"];
+	[array addObject:@"ccc"];
+	
+	NSMutableArray * results = [NSMutableArray arrayWithCapacity:3];
+	[array enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL * stop) {
+		[results addObject:obj];
+	}];
+	STAssertTrue([array count] == [results count], @"enumerateUsingBlock didn't enumerate through...");
+	STAssertTrue([[results objectAtIndex:0] isEqual:[array objectAtIndex:0]] &&
+				 [[results objectAtIndex:2] isEqual:[array objectAtIndex:2]],
+				 @"enumerated objects are not the ones or in wrong order");
+}
+
 @end

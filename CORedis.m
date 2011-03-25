@@ -171,6 +171,19 @@
 	return [resultArray reverseObjectEnumerator];
 }
 
+- (void)enumerateObjectsUsingBlock:(void (^)(id obj, NSUInteger idx, BOOL *stop))block
+{
+	NSEnumerator * arrayEnum = [self objectEnumerator];
+	id obj; NSUInteger count = 0; BOOL stop = NO;
+	while (obj = [arrayEnum nextObject]) {
+		block(obj,count,&stop);
+		count++;
+		if (stop) {
+			break;
+		}
+	}
+}
+
 - (NSUInteger)indexOfObject:(id)anObject
 {
 	NSUInteger index = 0;

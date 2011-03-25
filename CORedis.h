@@ -49,6 +49,7 @@
 - (NSArray*)objectsAtIndexes:(NSIndexSet*)indexes;
 - (NSEnumerator*)objectEnumerator;
 - (NSEnumerator*)reverseObjectEnumerator;
+- (void)enumerateObjectsUsingBlock:(void (^)(id obj, NSUInteger idx, BOOL *stop))block;
 
 - (NSUInteger)indexOfObject:(id)anObject;
 - (NSUInteger)indexOfObject:(id)anObject inRange:(NSRange)range;
