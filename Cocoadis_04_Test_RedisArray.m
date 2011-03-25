@@ -200,4 +200,27 @@
 				 @"enumerated objects are not the ones or in wrong order");
 }
 
+- (void)test_11_firstObjectCommonWithArray {
+	id array = [[COArray alloc] initAsKey:@"anArray" persistence:redis];
+	[array addObject:@"aaa"];
+	[array addObject:@"bbb"];
+	[array addObject:@"ccc"];
+	[array addObject:@"ddd"];
+	[array addObject:@"eee"];
+	
+	id array2 = [[COArray alloc] initAsKey:@"anArray2" persistence:redis];
+	[array2 addObject:@"fff"];
+	[array2 addObject:@"ggg"];
+	[array2 addObject:@"bbb"];
+	
+	id result = [array firstObjectCommonWithArray:array2];
+	STAssertTrue([result isEqual:@"bbb"], @"it should be bbb, it is: %@", [result description]);
+	
+	id array3 = [NSArray arrayWithObjects:@"fff", @"ggg", @"bbb", nil];
+	
+	id result2 = [array firstObjectCommonWithArray:array3];
+	STAssertTrue([result2 isEqual:@"bbb"], @"it should be bbb, it is: %@", [result2 description]);
+	
+}
+
 @end

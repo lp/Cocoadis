@@ -213,5 +213,18 @@
 	return NSNotFound;
 }
 
+// accepts both NSArray and COArray
+- (id)firstObjectCommonWithArray:(id)array
+{
+	NSEnumerator * arrayEnum = [self objectEnumerator];
+	id obj;
+	while (obj = [arrayEnum nextObject]) {
+		if ([array containsObject:obj]) {
+			return obj;
+		}
+	}
+	return nil;
+}
+
 
 @end
