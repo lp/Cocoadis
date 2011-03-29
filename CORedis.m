@@ -226,5 +226,18 @@
 	return nil;
 }
 
+- (BOOL)isEqualToArray:(id)otherArray
+{
+	if ([self count] == [otherArray count]) {
+		for (NSUInteger i = 0; i < [self count]; i++) {
+			if (![[self objectAtIndex:i] isEqual:[otherArray objectAtIndex:i]]) {
+				return NO;
+			}
+		}
+		return YES;
+	}
+	return NO;
+}
+
 
 @end

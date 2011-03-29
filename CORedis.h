@@ -54,5 +54,6 @@
 - (NSUInteger)indexOfObject:(id)anObject;
 - (NSUInteger)indexOfObject:(id)anObject inRange:(NSRange)range;
 - (id)firstObjectCommonWithArray:(NSArray*)array;
+- (BOOL)isEqualToArray:(NSArray*)otherArray;
 
 @end

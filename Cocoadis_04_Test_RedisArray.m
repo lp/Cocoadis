@@ -223,4 +223,39 @@
 	
 }
 
+- (void)test_12_isEqualToArray {
+	id array = [[COArray alloc] initAsKey:@"anArray" persistence:redis];
+	[array addObject:@"aaa"];
+	[array addObject:@"bbb"];
+	[array addObject:@"ccc"];
+	[array addObject:@"ddd"];
+	[array addObject:@"eee"];
+	
+	id array2 = [[COArray alloc] initAsKey:@"anArray2" persistence:redis];
+	[array2 addObject:@"aaa"];
+	[array2 addObject:@"bbb"];
+	[array2 addObject:@"ccc"];
+	[array2 addObject:@"ddd"];
+	[array2 addObject:@"eee"];
+	
+	id array3 = [[COArray alloc] initAsKey:@"anArray3" persistence:redis];
+	[array3 addObject:@"aaa"];
+	[array3 addObject:@"bbb"];
+	[array3 addObject:@"zzz"];
+	[array3 addObject:@"ddd"];
+	[array3 addObject:@"eee"];
+	
+	id array4 = [NSArray arrayWithObjects:
+				  @"aaa", @"bbb", @"ccc", @"ddd", @"eee",nil];
+				 
+	
+	id array5 = [NSArray arrayWithObjects:
+				  @"aaa", @"bbb", @"ccc", @"ttt", @"eee",nil];
+	
+	STAssertTrue([array isEqualToArray:array2], @"arrays should be equal");
+	STAssertFalse([array isEqualToArray:array3], @"arrays should not be equal");
+	STAssertTrue([array isEqualToArray:array4], @"arrays should be equal");
+	STAssertFalse([array isEqualToArray:array5], @"arrays should not be equal");
+}
+
 @end
