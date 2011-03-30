@@ -47,6 +47,15 @@
 	
 }
 +(id)arrayAsKey:(NSString*)key;
++(id)arrayWithArray:(id)anArray asKey:(NSString*)key;
++(id)arrayWithArray:(id)anArray asKey:(NSString*)key persistence:(id)pers;
+-(id)initWithArray:(id)anArray asKey:(NSString*)key;
+-(id)initWithArray:(id)anArray asKey:(NSString*)key persistence:(id)pers;
+-(id)initAsKey:(NSString *)key withObjects:(id)firstObj, ...
+NS_REQUIRES_NIL_TERMINATION;
+-(id)initAsKey:(NSString *)key persistence:(id)pers withObjects:(id)firstObj, ...
+NS_REQUIRES_NIL_TERMINATION;
+
 @end
 
 @interface CODictionary : COObject {

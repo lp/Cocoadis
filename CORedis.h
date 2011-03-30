@@ -56,4 +56,6 @@
 - (id)firstObjectCommonWithArray:(NSArray*)array;
 - (BOOL)isEqualToArray:(NSArray*)otherArray;
 
+- (id)arrayByAddingObject:(id)anObj asKey:(NSString*)key;
+
 @end

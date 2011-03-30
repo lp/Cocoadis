@@ -25,6 +25,7 @@
 // 
 
 #import "CORedis.h"
+#import "COObject.h"
 
 // Private Methods Interface
 
@@ -237,6 +238,13 @@
 		return YES;
 	}
 	return NO;
+}
+
+- (id)arrayByAddingObject:(id)anObj asKey:(NSString*)key
+{
+	id reArray = [COArray arrayWithArray:self asKey:key];
+	[reArray addObject:anObj];
+	return reArray;
 }
 
 

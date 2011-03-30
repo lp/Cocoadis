@@ -127,7 +127,67 @@
 
 @implementation COArray
 +(id)arrayAsKey:(NSString*)key { return [self objectAsKey:key]; }
+
++(id)arrayWithArray:(id)anArray asKey:(NSString*)key
+{
+	return [[[self alloc] initWithArray:anArray asKey:key] autorelease];
+}
+
++(id)arrayWithArray:(id)anArray asKey:(NSString*)key persistence:(id)pers
+{
+	return [[[self alloc] initWithArray:anArray asKey:key persistence:pers] autorelease];
+}
+
+-(id)initWithArray:(id)anArray asKey:(NSString*)key
+{
+	return [self initWithArray:anArray asKey:key persistence:nil];
+}
+
+-(id)initWithArray:(id)anArray asKey:(NSString*)key persistence:(id)pers
+{
+	self = [self initAsKey:key persistence:pers];
+	if (self) {
+		NSEnumerator * arrayEnum = [anArray objectEnumerator];
+		id arrObj;
+		while (arrObj = [arrayEnum nextObject]) {
+			[self performSelector:@selector(addObject:) withObject:arrObj];
+		}
+	}
+	return self;
+}
+
+-(id)initAsKey:(NSString *)key withObjects:(id)firstObj, ...
+{
+	self = [self initAsKey:key persistence:nil];
+	if (self) {
+		va_list args;
+		va_start(args, firstObj);
+		for (id arg = firstObj; arg != nil; arg = va_arg(args, id))
+		{
+			[self performSelector:@selector(addObject:) withObject:arg];
+		}
+		va_end(args);
+	}
+	return self;
+}
+
+-(id)initAsKey:(NSString *)key persistence:(id)pers withObjects:(id)firstObj, ...
+{
+	self = [self initAsKey:key persistence:pers];
+	if (self) {
+		va_list args;
+		va_start(args, firstObj);
+		for (id arg = firstObj; arg != nil; arg = va_arg(args, id))
+		{
+			[self performSelector:@selector(addObject:) withObject:arg];
+		}
+		va_end(args);
+	}
+	return self;
+}
+
 @end
+
 @implementation CODictionary
 +(id)dictionaryAsKey:(NSString*)key { return [self objectAsKey:key]; }
 @end

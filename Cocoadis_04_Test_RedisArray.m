@@ -258,4 +258,45 @@
 	STAssertFalse([array isEqualToArray:array5], @"arrays should not be equal");
 }
 
+- (void)test_13_initWithArray {
+	id array = [[COArray alloc] initAsKey:@"anArray" persistence:redis];
+	[array addObject:@"aaa"];
+	[array addObject:@"bbb"];
+	[array addObject:@"ccc"];
+	[array addObject:@"ddd"];
+	[array addObject:@"eee"];
+	
+	id array2 = [NSArray arrayWithObjects:
+				 @"aaa", @"bbb", @"ccc", @"ddd",nil];
+	
+	id array3 = [[COArray alloc] initWithArray:array asKey:@"anArray3" persistence:redis];
+	STAssertNotNil(array3, @"array wasn't initialised with array, got nil");
+	STAssertTrue([array3 count] == 5, @"new array size is wrong");
+	STAssertTrue([array isEqualToArray:array3], @"new array doesn't include all the old array menbers");
+	
+	id array4 = [COArray arrayWithArray:array2 asKey:@"anArray4" persistence:redis];
+	STAssertNotNil(array4, @"array wasn't initialised with array, got nil");
+	STAssertTrue([array4 count] == 4, @"new array size is wrong");
+	STAssertTrue([array4 isEqualToArray:array2], @"new array doesn't include all the old array menbers");
+}
+
+- (void)test_14_initWithObjects {
+	id array = [[COArray alloc] initAsKey:@"anArray" persistence:redis withObjects:@"aaa", @"bbb", @"ccc", nil];
+	STAssertNotNil(array, @"initWithObjects didin't do...");
+	STAssertTrue([array count] == 3, @"created array has wrong length");
+	STAssertTrue([array indexOfObject:@"aaa"] == 0 && [array indexOfObject:@"ccc"] == 2,
+				 @"array isn't filled with objects in the right order");
+	
+	
+}
+
+- (void)test_15_arrayByAddingObject {
+	id array = [[COArray alloc] initAsKey:@"anArray" persistence:redis withObjects:@"aaa", @"bbb", @"ccc", nil];
+	id array2 = [array arrayByAddingObject:@"ddd" asKey:@"anArray2"];
+	STAssertNotNil(array2, @"newly array is nil");
+	STAssertTrue([array2 count] == 4, @"new array is of wrong length");
+	STAssertTrue([[array2 objectAtIndex:0] isEqual:@"aaa"] && [[array2 objectAtIndex:3] isEqual:@"ddd"],
+				 @"new array does not contain the right objects");
+}
+
 @end
