@@ -292,10 +292,41 @@
 
 - (void)test_15_arrayByAddingObject {
 	id array = [[COArray alloc] initAsKey:@"anArray" persistence:redis withObjects:@"aaa", @"bbb", @"ccc", nil];
-	id array2 = [array arrayByAddingObject:@"ddd" asKey:@"anArray2"];
+	id array2 = [array arrayByAddingObject:@"ddd"];
 	STAssertNotNil(array2, @"newly array is nil");
 	STAssertTrue([array2 count] == 4, @"new array is of wrong length");
 	STAssertTrue([[array2 objectAtIndex:0] isEqual:@"aaa"] && [[array2 objectAtIndex:3] isEqual:@"ddd"],
+				 @"new array does not contain the right objects");
+}
+
+- (void)test_16_arrayByAddingObjects {
+	id array = [[COArray alloc] initAsKey:@"anArray" persistence:redis withObjects:@"aaa", @"bbb", @"ccc", nil];
+	id array2 = [[COArray alloc] initAsKey:@"anArray2" persistence:redis withObjects:@"ddd", @"eee", @"fff", nil];
+	id array3 = [array arrayByAddingObjectsFromArray:array2];
+	STAssertNotNil(array3, @"newly array is nil");
+	STAssertTrue([array3 count] == 6, @"new array is of wrong length");
+	STAssertTrue([[array3 objectAtIndex:0] isEqual:@"aaa"] && [[array3 objectAtIndex:5] isEqual:@"fff"],
+				 @"new array does not contain the right objects");
+	
+	id array4 = [NSArray arrayWithObjects:@"ggg", @"hhh", @"iii", nil];
+	id array5 = [array arrayByAddingObjectsFromArray:array4];
+	STAssertNotNil(array5, @"newly array is nil");
+	STAssertTrue([array5 count] == 6, @"new array is of wrong length");
+	STAssertTrue([[array5 objectAtIndex:0] isEqual:@"aaa"] && [[array5 objectAtIndex:5] isEqual:@"iii"],
+				 @"new array does not contain the right objects");
+}
+
+- (void)test_17_filteredArrayUsingPredicate {
+	id array = [[COArray alloc] initAsKey:@"anArray" persistence:redis withObjects:@"aaa", @"bbb", @"ccc", nil];
+	NSPredicate * arrPredicate = [NSPredicate predicateWithBlock:^(id evaluatedObj, NSDictionary* bindings) {
+		if ([evaluatedObj isEqual:@"ccc"]) {
+			return YES;}
+		return NO;}];
+	
+	id array2 = [array filteredArrayUsingPredicate:arrPredicate];
+	STAssertNotNil(array2, @"newly array is nil");
+	STAssertTrue([array2 count] == 1, @"new array is of wrong length");
+	STAssertTrue([[array2 objectAtIndex:0] isEqual:@"ccc"],
 				 @"new array does not contain the right objects");
 }
 

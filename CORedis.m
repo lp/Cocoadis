@@ -240,12 +240,49 @@
 	return NO;
 }
 
-- (id)arrayByAddingObject:(id)anObj asKey:(NSString*)key
+- (NSArray*)arrayByAddingObject:(id)anObj
 {
-	id reArray = [COArray arrayWithArray:self asKey:key];
+	NSMutableArray * reArray = [[NSMutableArray alloc] init];
+	NSEnumerator * selfEnum = [self objectEnumerator];
+	id arrObj;
+	while (arrObj = [selfEnum nextObject]) {
+		[reArray addObject:arrObj];
+	}
 	[reArray addObject:anObj];
-	return reArray;
+	
+	[reArray autorelease];
+	return [NSArray arrayWithArray:reArray];
 }
 
+- (NSArray*)arrayByAddingObjectsFromArray:(id)otherArray
+{
+	NSMutableArray * reArray = [[NSMutableArray alloc] init];
+	NSEnumerator * selfEnum = [self objectEnumerator];
+	id arrObj;
+	while (arrObj = [selfEnum nextObject]) {
+		[reArray addObject:arrObj];
+	}
+	
+	NSEnumerator * arrEnum = [otherArray objectEnumerator];
+	while (arrObj = [arrEnum nextObject]) {
+		[reArray addObject:arrObj];
+	}
+	[reArray autorelease];
+	return [NSArray arrayWithArray:reArray];
+}
+
+- (NSArray*)filteredArrayUsingPredicate:(NSPredicate*)predicate
+{
+	NSMutableArray * retArray = [[NSMutableArray alloc] init];
+	NSEnumerator * selfEnum = [self objectEnumerator];
+	id arrObj;
+	while (arrObj = [selfEnum nextObject]) {
+		if ([predicate evaluateWithObject:arrObj]) {
+			[retArray addObject:arrObj];
+		}
+	}
+	[retArray autorelease];
+	return [NSArray arrayWithArray:retArray];
+}
 
 @end

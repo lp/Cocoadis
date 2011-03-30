@@ -56,6 +56,8 @@
 - (id)firstObjectCommonWithArray:(NSArray*)array;
 - (BOOL)isEqualToArray:(NSArray*)otherArray;
 
-- (id)arrayByAddingObject:(id)anObj asKey:(NSString*)key;
+- (NSArray*)arrayByAddingObject:(id)anObj;
+- (NSArray*)arrayByAddingObjectsFromArray:(id)otherArray;
+- (NSArray*)filteredArrayUsingPredicate:(NSPredicate*)predicate;
 
 @end
