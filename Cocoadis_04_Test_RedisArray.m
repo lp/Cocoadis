@@ -330,4 +330,15 @@
 				 @"new array does not contain the right objects");
 }
 
+- (void)test_18_subarrayWithRange {
+	id array = [[COArray alloc] initAsKey:@"anArray" persistence:redis withObjects:
+				@"aaa", @"bbb", @"ccc", @"ddd", @"eee", nil];
+	id subarray = [array subarrayWithRange:NSMakeRange(2, 3)];
+	STAssertNotNil(subarray, @"subarray returned is nil");
+	STAssertTrue([subarray count] == 3, @"returned subarray is of wrong length");
+	STAssertTrue([[subarray objectAtIndex:0] isEqual:@"ccc"] &&
+				 [[subarray objectAtIndex:2] isEqual:@"eee"],
+				 @"returned subarray contains wrong members");
+}
+
 @end

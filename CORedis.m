@@ -285,4 +285,16 @@
 	return [NSArray arrayWithArray:retArray];
 }
 
+- (NSArray*)subarrayWithRange:(NSRange)range
+{
+	NSMutableArray * newArray = [[NSMutableArray alloc] initWithCapacity:range.length];
+	for (NSUInteger i = 0; i < range.length; i++) {
+		NSUInteger idx = i + range.location;
+		[newArray addObject:[self objectAtIndex:idx]];
+	}
+	NSArray * retArray = [NSArray arrayWithArray:newArray];
+	[newArray release];
+	return retArray;
+}
+
 @end
