@@ -341,4 +341,15 @@
 				 @"returned subarray contains wrong members");
 }
 
+- (void)test_19_addObjectsFromArray {
+	id array = [[COArray alloc] initAsKey:@"anArray" persistence:redis withObjects:
+				@"aaa", @"bbb", @"ccc", nil];
+	[array addObjectsFromArray:[NSArray arrayWithObjects:@"ddd", @"eee", nil]];
+	
+	STAssertTrue([array count] == 5, @"addObjectsFromArray didn't add objects");
+	STAssertTrue([[array objectAtIndex:3] isEqual:@"ddd"] &&
+				 [[array objectAtIndex:4] isEqual:@"eee"],
+				 @"addObjectsFromArray didn't add objects in propper order");
+}
+
 @end

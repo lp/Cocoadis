@@ -297,4 +297,19 @@
 	return retArray;
 }
 
+- (void)addObjectsFromArray:(NSArray*)otherArray
+{
+	id arrObj;
+	for (arrObj in otherArray) {
+		[self addObject:arrObj];
+	}
+}
+
 @end
+
+@implementation CORedisDictionary
+
+
+
+@end
+

@@ -61,4 +61,15 @@
 - (NSArray*)filteredArrayUsingPredicate:(NSPredicate*)predicate;
 - (NSArray*)subarrayWithRange:(NSRange)range;
 
+- (void)addObjectsFromArray:(NSArray*)otherArray;
+
+
+
 @end
+
+@interface CORedisDictionary : CORedis {
+	
+}
+
+@end
+
