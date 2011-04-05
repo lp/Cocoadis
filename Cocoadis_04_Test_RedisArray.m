@@ -54,14 +54,14 @@
     STAssertNotNil(array, @"redis array is nil");
 	
 	[array addObject:@"aaa"];
-	STAssertTrue([array count] == 1, @"array didn't add object");
+	STAssertTrue([array count] == 1, @"array didn't add object, count should be 1, it is %d", [array count]);
 	
 	NSDictionary * dict = [NSDictionary dictionaryWithObjectsAndKeys:
 						   @"a",		@"letter a",
 						   @"b",		@"letter b",
 						   nil];
 	[array addObject:dict];
-	STAssertTrue([array count] == 2, @"array didn't add object");
+	STAssertTrue([array count] == 2, @"array didn't add object, count should be 2, it is %d", [array count]);
 	
 	id pDict = [array objectAtIndex:1];
 	STAssertTrue([pDict isKindOfClass:[NSDictionary class]], @"returned dict is no dict");
@@ -350,6 +350,17 @@
 	STAssertTrue([[array objectAtIndex:3] isEqual:@"ddd"] &&
 				 [[array objectAtIndex:4] isEqual:@"eee"],
 				 @"addObjectsFromArray didn't add objects in propper order");
+}
+
+- (void)test_20_insertObjectAtIndex {
+	id array = [[COArray alloc] initAsKey:@"anArray" persistence:redis withObjects:
+				@"aaa", @"bbb", @"ccc", nil];
+	[array insertObject:@"zzz" atIndex:1];
+	STAssertTrue([array count] == 4,
+				 @"insertObjectAtIndex didn't insert object, count should be 4, it is %d",
+				 [array count]);
+	STAssertTrue([[array objectAtIndex:1] isEqual:@"zzz"] && [[array objectAtIndex:2] isEqual:@"bbb"],
+				 @"insertObjectAtIndex didn't insert the object in the right position");
 }
 
 @end

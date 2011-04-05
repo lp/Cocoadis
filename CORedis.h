@@ -62,6 +62,7 @@
 - (NSArray*)subarrayWithRange:(NSRange)range;
 
 - (void)addObjectsFromArray:(NSArray*)otherArray;
+- (void)insertObject:(id)anObject atIndex:(NSUInteger)index;
 
 
 

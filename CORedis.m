@@ -305,6 +305,19 @@
 	}
 }
 
+- (void)insertObject:(id)anObject atIndex:(NSUInteger)index
+{	
+	id curObj = [redis command:[NSString stringWithFormat:@"LINDEX %@ %d", self.name, index]];
+	if ([curObj isKindOfClass:[NSString class]]) {
+		NSArray * command = [[NSArray alloc] initWithObjects:
+							 @"LINSERT", self.name,
+							 @"BEFORE", curObj, [self serialize:anObject],
+							 nil];
+		[redis commandArgv:command];
+		[command release];
+	}
+}
+
 @end
 
 @implementation CORedisDictionary
