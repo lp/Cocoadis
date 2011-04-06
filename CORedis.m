@@ -290,7 +290,13 @@
 	NSMutableArray * newArray = [[NSMutableArray alloc] initWithCapacity:range.length];
 	for (NSUInteger i = 0; i < range.length; i++) {
 		NSUInteger idx = i + range.location;
-		[newArray addObject:[self objectAtIndex:idx]];
+		id anObj = [self objectAtIndex:idx];
+		if (anObj) {
+			[newArray addObject:anObj];
+		} else {
+			[newArray addObject:[NSNull null]];
+		}
+
 	}
 	NSArray * retArray = [NSArray arrayWithArray:newArray];
 	[newArray release];
@@ -315,6 +321,26 @@
 							 nil];
 		[redis commandArgv:command];
 		[command release];
+	}
+}
+
+- (void)removeObjectAtIndex:(NSUInteger)index
+{	
+	NSUInteger arrCount = [self count];
+	if (index == arrCount-1) {
+		[redis command:[NSString stringWithFormat:@"RPOP %@", self.name]];
+	} else if (index > 0) {
+		NSArray * endList = [self subarrayWithRange:NSMakeRange((index+1), (arrCount-index-1))];
+		[redis commandArgv:[NSArray arrayWithObjects:
+							@"LTRIM", self.name,
+							[NSNumber numberWithUnsignedInteger:0],
+							[NSNumber numberWithUnsignedInteger:(index-1)],
+							nil]];
+		if ([endList isKindOfClass:[NSArray class]]) {
+			[self addObjectsFromArray:endList];
+		}
+	} else {
+		[redis command:[NSString stringWithFormat:@"LPOP %@", self.name]];
 	}
 }
 

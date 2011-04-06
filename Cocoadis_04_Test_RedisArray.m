@@ -363,4 +363,15 @@
 				 @"insertObjectAtIndex didn't insert the object in the right position");
 }
 
+- (void)test_21_removeObjectAtIndex {
+	id array = [[COArray alloc] initAsKey:@"anArray" persistence:redis withObjects:
+				@"aaa", @"bbb", @"ccc", @"ddd", @"eee", nil];
+	[array removeObjectAtIndex:2];
+	STAssertTrue([array count] == 4,
+				 @"object was not removed, count should be 4, it is %d", [array count]);
+	STAssertTrue([[array objectAtIndex:1] isEqual:@"bbb"] &&
+				 [[array objectAtIndex:2] isEqual:@"ddd"],
+				 @"right object was not removed");
+}
+
 @end
