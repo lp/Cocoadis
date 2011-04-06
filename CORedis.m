@@ -349,6 +349,16 @@
 	[redis command:[NSString stringWithFormat:@"LTRIM %@ 0 -2", self.name]];
 }
 
+- (void)replaceObjectAtIndex:(NSUInteger)index withObject:(id)anObject
+{
+	NSArray * command = [[NSArray alloc] initWithObjects:@"LSET", self.name,
+						 [NSNumber numberWithUnsignedInteger:index],
+						 [self serialize:anObject],
+						 nil];
+	[redis commandArgv:command];
+	[command release];
+}
+
 @end
 
 @implementation CORedisDictionary

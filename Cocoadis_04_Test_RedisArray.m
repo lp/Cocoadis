@@ -382,4 +382,13 @@
 	STAssertTrue([[array objectAtIndex:3] isEqual:@"ddd"], @"removeLastObject didn't remove the right object");
 }
 
+- (void)test_23_replaceObjectAtIndex {
+	id array = [[COArray alloc] initAsKey:@"anArray" persistence:redis withObjects:
+				@"aaa", @"bbb", @"ccc", @"ddd", @"eee", nil];
+	[array replaceObjectAtIndex:2 withObject:@"zzz"];
+	STAssertTrue([array count] == 5, @"replaceObjectAtIndex didn't replace");
+	STAssertTrue([[array objectAtIndex:2] isEqual:@"zzz"],
+				 @"replageObjectAtIndex didn't replace object");
+}
+
 @end
