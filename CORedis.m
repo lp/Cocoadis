@@ -344,6 +344,11 @@
 	}
 }
 
+- (void)removeLastObject
+{
+	[redis command:[NSString stringWithFormat:@"LTRIM %@ 0 -2", self.name]];
+}
+
 @end
 
 @implementation CORedisDictionary

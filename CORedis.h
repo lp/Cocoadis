@@ -64,7 +64,7 @@
 - (void)addObjectsFromArray:(NSArray*)otherArray;
 - (void)insertObject:(id)anObject atIndex:(NSUInteger)index;
 - (void)removeObjectAtIndex:(NSUInteger)index;
-
+- (void)removeLastObject;
 
 @end
 

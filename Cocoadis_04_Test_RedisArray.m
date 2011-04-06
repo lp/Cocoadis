@@ -374,4 +374,12 @@
 				 @"right object was not removed");
 }
 
+- (void)test_22_removeLastObject {
+	id array = [[COArray alloc] initAsKey:@"anArray" persistence:redis withObjects:
+				@"aaa", @"bbb", @"ccc", @"ddd", @"eee", nil];
+	[array removeLastObject];
+	STAssertTrue([array count] == 4, @"removeLastObject didn't remove the last object");
+	STAssertTrue([[array objectAtIndex:3] isEqual:@"ddd"], @"removeLastObject didn't remove the right object");
+}
+
 @end
