@@ -391,4 +391,17 @@
 				 @"replageObjectAtIndex didn't replace object");
 }
 
+- (void)test_24_insertObjectsAtIndexes {
+	id array = [[COArray alloc] initAsKey:@"anArray" persistence:redis withObjects:
+				@"aaa", @"bbb", @"ccc", @"ddd", @"eee", nil];
+	[array insertObjects:[NSArray arrayWithObjects:@"xxx", @"yyy", nil]
+			   atIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(1, 2)]];
+	STAssertTrue([array count] == 7, @"insertObjectsAtIndexes didn't insert");
+	STAssertTrue([[array objectAtIndex:0] isEqual:@"aaa"] &&
+				 [[array objectAtIndex:1] isEqual:@"xxx"] &&
+				 [[array objectAtIndex:2] isEqual:@"yyy"] &&
+				 [[array objectAtIndex:3] isEqual:@"bbb"],
+				 @"insertObjectsAtIndexes didn't insert");
+}
+
 @end

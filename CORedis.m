@@ -359,6 +359,17 @@
 	[command release];
 }
 
+- (void)insertObjects:(NSArray*)objects atIndexes:(NSIndexSet*)indexes
+{
+	NSUInteger currentIndex = [indexes firstIndex];
+	NSUInteger i, count = [indexes count];
+	
+	for (i = 0; i < count; i++) {
+		[self insertObject:[objects objectAtIndex:i] atIndex:currentIndex];
+		currentIndex = [indexes indexGreaterThanIndex:currentIndex];
+	}
+}
+
 @end
 
 @implementation CORedisDictionary
