@@ -69,6 +69,7 @@
 - (void)insertObjects:(NSArray*)objects atIndexes:(NSIndexSet*)indexes;
 - (void)removeAllObjects;
 - (void)removeObject:(id)anObject;
+- (void)removeObject:(id)anObject inRange:(NSRange)aRange;
 
 @end
 

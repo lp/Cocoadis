@@ -390,6 +390,18 @@
 	[command release];
 }
 
+- (void)removeObject:(id)anObject inRange:(NSRange)aRange
+{	
+	NSInteger idx;
+	idx = [self indexOfObject:anObject inRange:aRange];
+	while (idx < NSIntegerMax) {
+		NSLog(@"idx: %d", idx);
+		[self removeObjectAtIndex:idx];
+		aRange = NSMakeRange(aRange.location, aRange.length-1);
+		idx = [self indexOfObject:anObject inRange:aRange];
+	}
+}
+
 @end
 
 @implementation CORedisDictionary

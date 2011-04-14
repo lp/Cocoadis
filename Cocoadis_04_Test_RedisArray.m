@@ -419,4 +419,13 @@
 	STAssertFalse([array containsObject:@"bbb"], @"removeObject didn't remove the object");
 }
 
+- (void)test_27_removeObjectInRange {
+	id array = [[COArray alloc] initAsKey:@"anArray" persistence:redis withObjects:
+				@"eee", @"aaa", @"eee", @"eee", @"ddd", nil];
+	[array removeObject:@"eee" inRange:NSMakeRange(1, 3)];
+	STAssertTrue([array count] == 3,
+				 @"removeObjectInRange didn't remove the objects in range, count should be 3, it is: %d",
+				 [array count]);
+}
+
 @end
