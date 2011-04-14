@@ -411,4 +411,12 @@
 	STAssertTrue([array count] == 0, @"array is not empty after removeAllObjects");
 }
 
+- (void)test_26_removeObject {
+	id array = [[COArray alloc] initAsKey:@"anArray" persistence:redis withObjects:
+				@"aaa", @"bbb", @"ccc", @"bbb", @"eee", nil];
+	[array removeObject:@"bbb"];
+	STAssertTrue([array count] == 3, @"removeObject didn't remove its 2 instances");
+	STAssertFalse([array containsObject:@"bbb"], @"removeObject didn't remove the object");
+}
+
 @end

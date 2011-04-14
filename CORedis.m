@@ -379,6 +379,17 @@
 	[command release];
 }
 
+- (void)removeObject:(id)anObject
+{
+	NSArray * command = [[NSArray alloc] initWithObjects:
+						 @"LREM", self.name,
+						 [NSNumber numberWithUnsignedInteger:0],
+						 [self serialize:anObject],
+						 nil];
+	[redis commandArgv:command];
+	[command release];
+}
+
 @end
 
 @implementation CORedisDictionary
