@@ -404,4 +404,11 @@
 				 @"insertObjectsAtIndexes didn't insert");
 }
 
+- (void)test_25_removeAllObjects {
+	id array = [[COArray alloc] initAsKey:@"anArray" persistence:redis withObjects:
+				@"aaa", @"bbb", @"ccc", @"ddd", @"eee", nil];
+	[array removeAllObjects];
+	STAssertTrue([array count] == 0, @"array is not empty after removeAllObjects");
+}
+
 @end

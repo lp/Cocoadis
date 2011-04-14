@@ -370,6 +370,15 @@
 	}
 }
 
+- (void)removeAllObjects
+{
+	NSArray * command = [[NSArray alloc] initWithObjects:
+						 @"DEL", self.name,
+						 nil];
+	[redis commandArgv:command];
+	[command release];
+}
+
 @end
 
 @implementation CORedisDictionary
