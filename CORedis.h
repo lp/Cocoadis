@@ -70,6 +70,9 @@
 - (void)removeAllObjects;
 - (void)removeObject:(id)anObject;
 - (void)removeObject:(id)anObject inRange:(NSRange)aRange;
+- (void)removeObjectsAtIndexes:(NSIndexSet*)indexes;
+
+- (NSString*)description;
 
 @end
 

@@ -41,6 +41,7 @@
 - (void)setUp {
 	redis = [ObjCHiredis redis];
 	[redis retain];
+	[redis command:@"FLUSHDB"];
 }
 
 - (void)tearDown {
@@ -369,6 +370,9 @@
 	[array removeObjectAtIndex:2];
 	STAssertTrue([array count] == 4,
 				 @"object was not removed, count should be 4, it is %d", [array count]);
+	[array removeObjectAtIndex:3];
+	STAssertTrue([array count] == 3,
+				 @"object was not removed, count should be 3, it is %d", [array count]);
 	STAssertTrue([[array objectAtIndex:1] isEqual:@"bbb"] &&
 				 [[array objectAtIndex:2] isEqual:@"ddd"],
 				 @"right object was not removed");
@@ -426,6 +430,14 @@
 	STAssertTrue([array count] == 3,
 				 @"removeObjectInRange didn't remove the objects in range, count should be 3, it is: %d",
 				 [array count]);
+}
+
+- (void)test_28_removeObjectsAtIndexes {
+	id array = [[COArray alloc] initAsKey:@"anArray" persistence:redis withObjects:
+				@"aaa", @"bbb", @"ccc", @"ddd", @"eee", nil];
+	[array removeObjectsAtIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(1, 2)]];
+	STAssertTrue([array count] == 3, @"removeObjectsAtIndexes didn't remove objects");
+	STAssertTrue([[array objectAtIndex:1] isEqual:@"ddd"], @"remove objectsAtIndexes didn't remove the right member");
 }
 
 @end

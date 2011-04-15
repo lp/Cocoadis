@@ -327,17 +327,24 @@
 - (void)removeObjectAtIndex:(NSUInteger)index
 {	
 	NSUInteger arrCount = [self count];
-	if (index == arrCount-1) {
+	if (index > arrCount-1) {
+		NSException *e = [NSException
+						  exceptionWithName:NSRangeException
+						  reason:@"Index out of range"
+						  userInfo:nil];
+		@throw e;
+	} else if (index == arrCount-1) {
 		[redis command:[NSString stringWithFormat:@"RPOP %@", self.name]];
 	} else if (index > 0) {
+		NSLog(@"single remove: %d", index);
 		NSArray * endList = [self subarrayWithRange:NSMakeRange((index+1), (arrCount-index-1))];
-		[redis commandArgv:[NSArray arrayWithObjects:
-							@"LTRIM", self.name,
-							[NSNumber numberWithUnsignedInteger:0],
-							[NSNumber numberWithUnsignedInteger:(index-1)],
-							nil]];
+		NSLog(@"got the end list: %@", [endList description]);
+		[redis command:[NSString stringWithFormat:@"LTRIM %@ %d %d",
+						self.name, 0, index-1]];
+		NSLog(@"array trimmed!");
 		if ([endList isKindOfClass:[NSArray class]]) {
 			[self addObjectsFromArray:endList];
+			NSLog(@"array re put!: %@", [self description]);
 		}
 	} else {
 		[redis command:[NSString stringWithFormat:@"LPOP %@", self.name]];
@@ -400,6 +407,20 @@
 		aRange = NSMakeRange(aRange.location, aRange.length-1);
 		idx = [self indexOfObject:anObject inRange:aRange];
 	}
+}
+
+- (void)removeObjectsAtIndexes:(NSIndexSet*)indexes
+{
+	[indexes enumerateIndexesWithOptions:NSEnumerationReverse usingBlock:^(NSUInteger idx, BOOL * stop) {
+		NSLog(@"removing idx: %d", idx);
+		[self removeObjectAtIndex:idx];
+		NSLog(@"array became: %@", [self description]);
+	}];
+}
+
+- (NSString*)description
+{
+	return [[self subarrayWithRange:NSMakeRange(0, [self count])] description];
 }
 
 @end
